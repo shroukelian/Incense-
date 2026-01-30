@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="mainHtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر إنسينس الكامل | عالم الفخامة</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body class="shop-page-body">
+
+    <!-- الهيدر الموحد -->
+    <header class="main-header">
+        <div class="container navbar">
+            <!-- اللوجو -->
+            <div class="logo-area" onclick="location.href='index.html'">
+                <img src="images/logo.png" alt="Logo" class="nav-logo">
+                <div class="brand-name">
+                    <h1>إنسينس</h1>
+                    <span class="legal-name">مؤسسة حلوه مبارك السبيعي</span>
+                </div>
+            </div>
+
+            <!-- القائمة الرئيسية -->
+            <ul class="nav-links">
+                <li><a href="#home" class="lang-ar">الرئيسية</a><a href="#home" class="lang-en">Home</a></li>
+                <li><a href="#about" class="lang-ar">من نحن</a><a href="#about" class="lang-en">About</a></li>
+                </li>
+                <li><a href="shop.html" class="lang-ar">المتجر</a><a href="shop.html" class="lang-en">Shop</a></li>
+
+                <!-- زر اللغة (يظهر فقط في الموبايل داخل القائمة) -->
+                <li class="mobile-only">
+                    <button class="lang-btn langSwitcherBtn">
+                        <i class="fas fa-globe"></i> <span class="langText">English</span>
+                    </button>
+                </li>
+            </ul>
+            </nav>
+
+            <div class="header-actions">
+                <!-- أيقونة السلة -->
+                <a href="cart.html" class="cart-link">
+                    <i class="fas fas fa-shopping-cart"></i>
+                    <span id="cartCount">0</span>
+                </a>
+
+                <button class="lang-btn langSwitcherBtn desktop-only">
+                    <i class="fas fa-globe"></i> <span class="langText">English</span>
+                </button>
+
+                <!-- زر الموبايل -->
+                <div class="menu-toggle" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- عنوان المتجر -->
+    <section class="shop-hero">
+        <div class="hero-overlay-dark"></div>
+        <div class="container text-center hero-content-inner">
+            <h1 class="lang-ar">متجر إنسينس الإلكتروني</h1>
+            <h1 class="lang-en">Incense Online Store</h1>
+            <p class="lang-ar">أرقى العطور والعود في متناول يدك</p>
+        </div>
+    </section>
+
+    <main class="container section-padding">
+        <!-- البحث والفلترة -->
+        <div class="shop-controls reveal">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن عطر أو بخور...">
+            </div>
+            <div class="category-filters">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="perfumes">العطور</button>
+                <button class="filter-btn" data-filter="beauty">التجميل</button>
+                <button class="filter-btn" data-filter="oud">العود</button>
+            </div>
+        </div>
+
+        <!-- شبكة المنتجات -->
+        <div class="products-grid" id="productsGrid"></div>
+    </main>
+
+    <!-- الفوتر القانوني (مهم جداً) -->
+    <footer class="main-footer-dark">
+        <div class="container footer-grid-pro">
+
+            <!-- العمود الأول: العلامة التجارية -->
+            <div class="footer-col brand-col">
+                <img src="images/logo.png" alt="Incense Logo" class="footer-logo-white">
+                <p class="footer-slogan lang-ar">إنسينس للعطور - حيث تلتقي الأصالة بالفخامة.</p>
+                <p class="footer-slogan lang-en">Incense Perfumes - Where authenticity meets luxury.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-snapchat"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <!-- العمود الثاني: روابط تهمك (بدون نقاط) -->
+            <div class="footer-col">
+                <h4 class="footer-title lang-ar">روابط تهمك</h4>
+                <h4 class="footer-title lang-en">Useful Links</h4>
+                <ul class="footer-links">
+                    <li><a href="cart.html"><span class="lang-ar">سلة المشتريات</span><span class="lang-en">Shopping
+                                Cart</span></a></li>
+                    <li><a href="shipping.html"><span class="lang-ar">معلومات الشحن والتوصيل</span><span
+                                class="lang-en">Shipping Info</span></a></li>
+                    <li><a href="policy.html"><span class="lang-ar">سياسة الخصوصية</span><span class="lang-en">Privacy
+                                Policy</span></a></li>
+                </ul>
+            </div>
+
+            <!-- العمود الثالث: تواصل معنا -->
+            <div class="footer-col">
+                <h4 class="footer-title lang-ar">تواصل معنا</h4>
+                <h4 class="footer-title lang-en">Contact Us</h4>
+                <div class="footer-contact-details">
+                    <a href="tel:+966503606971" class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span dir="ltr">+966 503 606 971</span>
+                    </a>
+                    <a href="mailto:info@incense-sa.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@incense-sa.com</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- شريط الحقوق السفلي -->
+        <div class="footer-copyright-bar">
+            <div class="container flex-between-center">
+                <p>&copy; 2026 جميع الحقوق محفوظة لشركة إنسينس للعطور</p>
+                <div class="dev-credit">
+                    Design & Programming by <a href="#">GMTWEB</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- زر واتساب عائم -->
+    <a href="https://wa.me/966503606971" class="whatsapp-float pulse" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

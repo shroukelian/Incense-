@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="mainHtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سلة المشتريات | إنسينس</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        .cart-page-wrapper {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .cart-list {
+            background: #fff;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item img {
+            width: 90px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .cart-item-info h4 {
+            color: var(--maroon);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-info p {
+            color: var(--gold);
+            font-weight: 900;
+        }
+
+        .cart-summary-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            height: fit-content;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--gold);
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--maroon);
+            margin: 20px 0;
+            border-top: 2px solid #f9f9f9;
+            padding-top: 15px;
+        }
+
+        .btn-remove {
+            background: #fff0f0;
+            color: #ff3b30;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-remove:hover {
+            background: #ff3b30;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .cart-page-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <header class="main-header">
+        <div class="container navbar">
+            <div class="logo-area" onclick="location.href='index.html'" style="cursor:pointer">
+                <img src="images/logo.png" alt="Logo" class="nav-logo">
+                <div class="brand-name">
+                    <h1>إنسينس</h1><span>PERFUMES</span>
+                </div>
+            </div>
+            <a href="shop.html" class="btn-gold">العودة للمتجر</a>
+        </div>
+    </header>
+
+    <main class="container section-padding">
+        <h2 class="gold-text text-center reveal active" style="font-size: 32px; margin-bottom: 40px;">سلة المشتريات</h2>
+
+        <div class="cart-page-wrapper">
+            <div id="cartList" class="cart-list reveal active">
+                <!-- المنتجات تظهر هنا -->
+            </div>
+
+            <aside class="cart-summary-card reveal active">
+                <h3 class="mb-4">ملخص الطلب</h3>
+                <div id="summaryItems"></div>
+                <div class="total-row">
+                    <span>الإجمالي:</span>
+                    <span id="finalTotal">0 SAR</span>
+                </div>
+                <button onclick="sendOrder()" class="add-to-cart-btn"
+                    style="background:#25d366; border:none; padding:18px;">
+                    إرسال الطلب عبر واتساب <i class="fab fa-whatsapp"></i>
+                </button>
+            </aside>
+        </div>
+    </main>
+
+    <script>
+        function renderCart() {
+            const cart = JSON.parse(localStorage.getItem('incenseCart')) || [];
+            const container = document.getElementById('cartList');
+            const summary = document.getElementById('finalTotal');
+
+            if (cart.length === 0) {
+                container.innerHTML = `<div class="text-center"><h3>السلة فارغة حالياً</h3><br><a href="shop.html" class="gold-text">ابدأ التسوق من هنا</a></div>`;
+                summary.textContent = "0 SAR";
+                return;
+            }
+
+            let total = 0;
+            container.innerHTML = cart.map(item => {
+                total += item.price * item.quantity;
+                return `
+                    <div class="cart-item">
+                        <img src="${item.img}" alt="">
+                        <div class="cart-item-info" style="flex-grow:1">
+                            <h4>${item.nameAr}</h4>
+                            <p>${item.price} SAR × ${item.quantity}</p>
+                        </div>
+                        <button class="btn-remove" onclick="removeItem(${item.id})"><i class="fas fa-trash"></i> حذف</button>
+                    </div>
+                `;
+            }).join('');
+
+            summary.textContent = total + " SAR";
+        }
+
+        function removeItem(id) {
+            let cart = JSON.parse(localStorage.getItem('incenseCart')) || [];
+            cart = cart.filter(item => item.id !== id);
+            localStorage.setItem('incenseCart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        function sendOrder() {
+            const cart = JSON.parse(localStorage.getItem('incenseCart')) || [];
+            let message = "طلب جديد من المتجر الإلكتروني:%0A%0A";
+            let total = 0;
+            cart.forEach(item => {
+                message += `• ${item.nameAr} (الكمية: ${item.quantity})%0A`;
+                total += item.price * item.quantity;
+            });
+            message += `%0A*الإجمالي النهائي: ${total} SAR*`;
+            window.open(`https://wa.me/966503606971?text=${message}`, '_blank');
+        }
+
+        renderCart();
+    </script>
+</body>
+
+</html>

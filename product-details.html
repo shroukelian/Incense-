@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="mainHtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل المنتج | دولتشي موندو</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body class="details-page">
+
+    <!-- الهيدر الموحد -->
+    <header class="main-header">
+        <div class="container navbar">
+            <!-- اللوجو -->
+            <div class="logo-area" onclick="location.href='index.html'">
+                <img src="images/logo.png" alt="Logo" class="nav-logo">
+                <div class="brand-name">
+                    <h1>إنسينس</h1>
+                    <span class="legal-name">مؤسسة حلوه مبارك السبيعي</span>
+                </div>
+            </div>
+
+            <!-- القائمة الرئيسية -->
+            <ul class="nav-links">
+                <li><a href="index.html#home" class="lang-ar">الرئيسية</a><a href="#home" class="lang-en">Home</a></li>
+                <li><a href="index.html#about" class="lang-ar">من نحن</a><a href="#about" class="lang-en">About</a></li>
+                <li><a href="shop.html" class="lang-ar">المتجر</a><a href="shop.html" class="lang-en">Shop</a></li>
+
+                <!-- زر اللغة (يظهر فقط في الموبايل داخل القائمة) -->
+                <li class="mobile-only">
+                    <button class="lang-btn langSwitcherBtn">
+                        <i class="fas fa-globe"></i> <span class="langText">English</span>
+                    </button>
+                </li>
+            </ul>
+            </nav>
+
+            <div class="header-actions">
+                <!-- أيقونة السلة -->
+                <a href="cart.html" class="cart-link">
+                    <i class="fas fas fa-shopping-cart"></i>
+                    <span id="cartCount">0</span>
+                </a>
+
+                <!-- زر اللغة (يظهر فقط في الديسكتوب بجانب السلة) -->
+                <button class="lang-btn langSwitcherBtn desktop-only">
+                    <i class="fas fa-globe"></i> <span class="langText">English</span>
+                </button>
+
+                <!-- زر الموبايل -->
+                <div class="menu-toggle" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section-padding">
+        <!-- هذا الجزء سيتم تعبئته تلقائياً عبر الجافا سكريبت بالأسفل -->
+        <div id="productDetailContainer" class="product-details-wrapper">
+            <div class="loading-text">جاري تحميل تفاصيل العطر...</div>
+        </div>
+    </main>
+
+    <!-- الفوتر -->
+    <footer class="main-footer-dark">
+        <div class="container footer-grid-pro">
+
+            <!-- العمود الأول: العلامة التجارية -->
+            <div class="footer-col brand-col">
+                <img src="images/logo.png" alt="Incense Logo" class="footer-logo-white">
+                <p class="footer-slogan lang-ar">إنسينس للعطور - حيث تلتقي الأصالة بالفخامة.</p>
+                <p class="footer-slogan lang-en">Incense Perfumes - Where authenticity meets luxury.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-snapchat"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <!-- العمود الثاني: روابط تهمك (بدون نقاط) -->
+            <div class="footer-col">
+                <h4 class="footer-title lang-ar">روابط تهمك</h4>
+                <h4 class="footer-title lang-en">Useful Links</h4>
+                <ul class="footer-links">
+                    <li><a href="cart.html"><span class="lang-ar">سلة المشتريات</span><span class="lang-en">Shopping
+                                Cart</span></a></li>
+                    <li><a href="shipping.html"><span class="lang-ar">معلومات الشحن والتوصيل</span><span
+                                class="lang-en">Shipping Info</span></a></li>
+                    <li><a href="policy.html"><span class="lang-ar">سياسة الخصوصية</span><span class="lang-en">Privacy
+                                Policy</span></a></li>
+                </ul>
+            </div>
+
+            <!-- العمود الثالث: تواصل معنا -->
+            <div class="footer-col">
+                <h4 class="footer-title lang-ar">تواصل معنا</h4>
+                <h4 class="footer-title lang-en">Contact Us</h4>
+                <div class="footer-contact-details">
+                    <a href="tel:+966503606971" class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span dir="ltr">+966 503 606 971</span>
+                    </a>
+                    <a href="mailto:info@incense-sa.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@incense-sa.com</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- شريط الحقوق السفلي -->
+        <div class="footer-copyright-bar">
+            <div class="container flex-between-center">
+                <p>&copy; 2026 جميع الحقوق محفوظة لشركة إنسينس للعطور</p>
+                <div class="dev-credit">
+                    Design & Programming by <a href="#">GMTWEB</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. قاعدة البيانات (يجب أن تطابق الموجودة في script.js)
+        const productData = [
+            { id: 1, cat: 'boxes', nameAr: 'بوكس مكس رباعي حالي وموالح', nameEn: 'Mixed Quad Box', price: '48.00', wholesale: '40.25', notes: 'تشكيلة فاخرة من الحلويات والموالح', img: 'images/p1.jpg' },
+            { id: 2, cat: 'boxes', nameAr: 'بوكس مكس رباعي بايتس وشوكولاتة', nameEn: 'Mixed Bytes Box', price: '48.00', wholesale: '40.25', notes: 'بايتس مغطاة بأجود أنواع الشوكولاتة', img: 'images/p2.jpg' },
+            { id: 7, cat: 'hala', nameAr: 'حلا فرح', nameEn: 'Hala Farah', price: '34.00', wholesale: '28.75', notes: 'قطعة صغيرة من السعادة', img: 'images/p7.jpg' }
+            // ... أضف باقي المنتجات هنا
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // 2. الحصول على الـ ID من الرابط (URL)
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+
+            // 3. البحث عن المنتج في البيانات
+            const product = productData.find(p => p.id == productId);
+
+            const container = document.getElementById('productDetailContainer');
+
+            if (product) {
+                // 4. حقن البيانات في الصفحة
+                container.innerHTML = `
+                    <div class="product-gallery reveal active">
+                        <div class="main-img-box">
+                            <img src="${product.img}" id="mainProductImg" onerror="this.src='images/p1.webp'">
+                        </div>
+                    </div>
+
+                    <div class="product-info-side reveal active">
+                        <span class="pro-category">${product.cat === 'hala' ? 'قسم الحلا' : 'قسم البوكسات'}</span>
+                        <h1 class="pro-title">${product.nameAr}</h1>
+                        
+                        <p class="pro-price-big">${product.price} SAR <small>شامل الضريبة</small></p>
+
+                        <div class="scent-notes-box">
+                            <h4><i class="fas fa-info-circle"></i> وصف المنتج:</h4>
+                            <p>${product.notes}</p>
+                            <div class="mt-3"><strong>سعر الجملة:</strong> ${product.wholesale} SAR</div>
+                        </div>
+
+                        <div class="order-actions">
+                            <a href="https://wa.me/966533622117?text=أريد طلب: ${product.nameAr}" class="btn-order-now">
+                                <i class="fab fa-whatsapp"></i> اطلب عبر واتساب الآن
+                            </a>
+                            <p class="shipping-info"><i class="fas fa-truck"></i> توصيل سريع للقصيم وكافة المناطق</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `<div class="text-center"><h2>المنتج غير موجود</h2><a href="shop.html">العودة للمتجر</a></div>`;
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
