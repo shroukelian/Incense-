@@ -1,5 +1,5 @@
 // ==========================================
-// 1. قاعدة بيانات المنتجات (Global Scope)
+// 1.(Global Scope)
 // ==========================================
 const productData = [
     { 
@@ -20,13 +20,12 @@ const productData = [
         price: 450, notes: 'بخور طبيعي ثبات عالي', 
         img: 'images/p3.webp' 
     }
-    // يمكنك إضافة الـ 26 منتج هنا لاحقاً بنفس التنسيق
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
     
     // ==========================================
-    // 2. تعريف العناصر (Selectors)
+    // 2. (Selectors)
     // ==========================================
     const htmlTag = document.documentElement;
     const grid = document.getElementById('productsGrid');
@@ -38,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdownMenu = document.querySelector('.dropdown-menu');
 
     // ==========================================
-    // 3. وظيفة عرض المنتجات (Display Logic)
+    // 3. (Display Logic)
     // ==========================================
     function displayProducts(filter = 'all', query = '') {
         if (!grid) return;
@@ -84,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 4. معالجة اللغة (Bilingual Logic)
+    // 4. (Bilingual Logic)
     // ==========================================
     function applyLanguage(lang) {
         htmlTag.setAttribute('lang', lang);
@@ -98,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         localStorage.setItem('incenseLang', lang);
-        if (grid) displayProducts(); // تحديث المنتجات باللغة الجديدة
+        if (grid) displayProducts(); 
         updateCartBadge();
     }
 
@@ -111,12 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // تطبيق اللغة المحفوظة فوراً
     const savedLang = localStorage.getItem('incenseLang') || 'ar';
     applyLanguage(savedLang);
 
     // ==========================================
-    // 5. تشغيل قائمة الموبايل (Hamburger Menu)
+    // 5. (Hamburger Menu)
     // ==========================================
     if (menuBtn && navLinks) {
         menuBtn.addEventListener('click', (e) => {
@@ -129,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // إغلاق القائمة عند الضغط على أي رابط بداخلها
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
@@ -138,9 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ==========================================
-    // 6. تشغيل القائمة المنسدلة (Dropdown) في الموبايل
-    // ==========================================
+
     if (dropdownToggle && window.innerWidth < 992) {
         dropdownToggle.addEventListener('click', (e) => {
             e.preventDefault();
@@ -177,9 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // ==========================================
-    // 8. السلايدر التلقائي
-    // ==========================================
+
     const slides = document.querySelectorAll('.slide');
     if (slides.length > 0) {
         let currentSlide = 0;
@@ -190,14 +183,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000);
     }
 
-    // تشغيل الفلتر من الرابط (URL Params)
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get('cat');
     if (category) displayProducts(category);
 });
 
 // ==========================================
-// 9. وظائف عالمية (Global Functions)
+// 9. (Global Functions)
 // ==========================================
 
 function updateCartBadge() {

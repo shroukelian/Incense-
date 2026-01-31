@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* تنسيقات إضافية مخصصة لصفحة السلة */
         .cart-page-wrapper {
             margin-top: 30px;
             display: grid;
@@ -119,7 +118,6 @@
 
 <body class="bg-light">
 
-    <!-- الهيدر الموحد (نفس النسخة المترجمة في بقية الموقع) -->
     <header class="main-header">
         <div class="container navbar">
             <div class="logo-area" onclick="location.href='index.html'" style="cursor:pointer">
@@ -162,12 +160,9 @@
         </h2>
 
         <div class="cart-page-wrapper">
-            <!-- قائمة المنتجات -->
             <div id="cartList" class="cart-list reveal active">
-                <!-- جاري التحميل... -->
             </div>
 
-            <!-- ملخص السلة -->
             <aside class="cart-summary-card reveal active">
                 <h3 class="mb-4">
                     <span class="lang-ar">ملخص الطلب</span>
@@ -193,17 +188,14 @@
         </div>
     </main>
 
-    <!-- الفوتر الموحد -->
     <footer class="main-footer-dark">
         <div class="container text-center" style="padding: 20px 0;">
             <p>&copy; 2026 إنسينس للعطور - جميع الحقوق محفوظة</p>
         </div>
     </footer>
 
-    <!-- ملف السكريبت الرئيسي -->
     <script src="script.js"></script>
 
-    <!-- سكريبت خاص بإدارة عرض السلة فقط -->
     <script>
         function renderCart() {
             const cart = JSON.parse(localStorage.getItem('incenseCart')) || [];
@@ -272,13 +264,11 @@
             window.open(`https://wa.me/966503606971?text=${message}`, '_blank');
         }
 
-        // تشغيل العرض عند تحميل الصفحة
         window.addEventListener('load', renderCart);
 
-        // ربط تغيير اللغة بإعادة رسم السلة
         document.querySelectorAll('.langSwitcherBtn').forEach(btn => {
             btn.addEventListener('click', () => {
-                setTimeout(renderCart, 100); // تأخير بسيط لضمان تغير الـ lang في الـ HTML أولاً
+                setTimeout(renderCart, 100); 
             });
         });
     </script>

@@ -27,7 +27,6 @@ body {
     margin: auto;
 }
 
-/* اللغات */
 [lang="en"] .lang-ar {
     display: none;
 }
@@ -41,7 +40,6 @@ body {
     text-align: left;
 }
 
-/* Top Bar */
 .top-bar {
     background: #fff;
     color: #fff;
@@ -72,7 +70,6 @@ body {
     font-weight: bold;
 }
 
-/* Header */
 .main-header {
     background: #000;
     padding: 15px 0;
@@ -89,7 +86,6 @@ body {
     align-items: center;
 }
 
-/* Logo Area */
 .logo-area {
     display: flex;
     align-items: center;
@@ -113,7 +109,6 @@ body {
     letter-spacing: 2px;
 }
 
-/* Nav Links */
 .nav-links {
     display: flex;
     list-style: none;
@@ -131,7 +126,6 @@ body {
     color: var(--gold);
 }
 
-/* --- إصلاح القائمة المنسدلة --- */
 .dropdown {
     position: relative;
 }
@@ -160,7 +154,6 @@ body {
     border-bottom: 1px solid #f5f5f5;
 }
 
-/* Hero Section */
 .hero {
     height: 85vh;
     position: relative;
@@ -233,7 +226,6 @@ body {
     display: inline-block;
 }
 
-/* Sections */
 .section-padding {
     padding: 100px 0;
 }
@@ -286,7 +278,6 @@ body {
     margin-top: 15px;
 }
 
-/* Footer */
 .footer {
     background: #111;
     color: #fff;
@@ -311,7 +302,6 @@ body {
     margin-inline-end: 15px;
 }
 
-/* Reveal Animation */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -340,19 +330,15 @@ body {
     }
 }
 
-/* 1. إخفاء زر القائمة (التلات شرطات) من الديسكتوب */
 .menu-toggle {
     display: none;
-    /* مخفي افتراضياً */
     cursor: pointer;
     font-size: 24px;
     color: var(--gold);
 }
 
-/* 2. تنسيق زر اللغة ليكون مثل زر "تسوق العطور" */
 .lang-btn {
     background-color: var(--gold) !important;
-    /* اللون الذهبي */
     color: #fff !important;
     padding: 10px 25px !important;
     border: none !important;
@@ -384,28 +370,26 @@ body {
     .nav-links {
         position: fixed !important;
         top: 0;
-        right: -100%; /* مخفية تماماً بره الشاشة */
-        width: 100% !important; /* ملء الشاشة */
+        right: -100%; 
+        width: 100% !important; 
         height: 100vh !important;
-        background: #000000 !important; /* لون أسود صريح */
+        background: #000000 !important; 
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
         align-items: center !important;
         gap: 20px !important;
         transition: 0.5s ease-in-out;
-        z-index: 2500; /* تحت زر الإغلاق وفوق المحتوى */
+        z-index: 2500; 
         padding: 0;
         margin: 0;
         list-style: none;
     }
 
-    /* عندما تظهر القائمة */
     .nav-links.active {
-        right: 0 !important; /* تدخل جوه الشاشة */
+        right: 0 !important; 
     }
 
-    /* تنسيق الروابط داخل الستارة السوداء */
     .nav-links li {
         width: 100%;
         text-align: center;
@@ -423,7 +407,6 @@ body {
         color: var(--gold) !important;
     }
 
-    /* زر اللغة داخل القائمة */
     .lang-btn-nav {
         margin-top: 20px;
         background: var(--gold);
@@ -434,19 +417,15 @@ body {
         font-weight: bold;
     }
 }
-/* --- أنيميشن النبض لزر اللغة --- */
 @keyframes pulse-gold {
     0% {
         transform: scale(1);
         box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7);
-        /* لون الذهبي الخاص بك */
     }
 
     70% {
         transform: scale(1.05);
-        /* تكبير خفيف جداً */
         box-shadow: 0 0 0 10px rgba(197, 160, 89, 0);
-        /* تلاشي الظل */
     }
 
     100% {
@@ -455,10 +434,8 @@ body {
     }
 }
 
-/* تطبيق النبض على زر اللغة */
 .lang-btn {
     animation: pulse-gold 2s infinite;
-    /* نبض مستمر كل ثانيتين */
     transition: 0.3s;
     background-color: var(--gold) !important;
     color: #fff !important;
@@ -467,31 +444,25 @@ body {
     cursor: pointer;
 }
 
-/* توقف النبض عند وضع الماوس لراحة المستخدم */
 .lang-btn:hover {
     animation: none;
     transform: scale(1.1);
     background-color: #b38f2d !important;
 }
 
-/* --- تنسيق سكشن من نحن المطور --- */
 
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* تقسيم متساوي للنص والصورة */
     gap: 60px;
     align-items: center;
 }
 
-/* تصميم كلمة "من نحن" كبادج أنيق */
 .section-tag {
     background-color: #c5a059ba;
-    /* اللون الذهبي مع شفافية */
     color: #fff;
     padding: 6px 25px;
     border-radius: 50px;
-    /* شكل كبسولة احترافي */
     display: inline-block;
     font-size: 14px;
     font-weight: bold;
@@ -512,7 +483,6 @@ body {
     text-align: justify;
 }
 
-/* تنسيق الصورة والإطار الذهبي اللي وراها */
 .about-img-wrapper {
     position: relative;
     z-index: 1;
@@ -526,13 +496,11 @@ body {
     z-index: 2;
 }
 
-/* الظل الذهبي خلف الصورة كما في السكرين شوت */
 .about-img-wrapper::after {
     content: '';
     position: absolute;
     top: 20px;
     right: -20px;
-    /* للإزاحة جهة اليمين */
     width: 100%;
     height: 100%;
     background-color: var(--gold);
@@ -541,13 +509,11 @@ body {
     opacity: 0.3;
 }
 
-/* تبديل اتجاه الظل في اللغة الإنجليزية */
 [lang="en"] .about-img-wrapper::after {
     right: auto;
     left: -20px;
 }
 
-/* التجاوب للجوال */
 @media (max-width: 768px) {
     .about-grid {
         grid-template-columns: 1fr;
@@ -565,7 +531,6 @@ body {
     }
 }
 
-/* --- تنسيق كروت الأقسام --- */
 .categories-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -637,7 +602,6 @@ body {
     color: #fff;
 }
 
-/* --- تنسيق آراء العملاء المطور --- */
 
 .stars-main {
     color: var(--gold);
@@ -648,7 +612,6 @@ body {
 .testi-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* كرتين بجانب بعض */
     gap: 30px;
     margin-top: 50px;
 }
@@ -660,7 +623,6 @@ body {
     text-align: center;
     position: relative;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    /* ظل ناعم جداً */
     border: 1px solid #f0f0f0;
     transition: 0.3s;
 }
@@ -668,7 +630,6 @@ body {
 .testi-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(197, 160, 89, 0.2);
-    /* توهج ذهبي خفيف عند الوقوف بالماوس */
 }
 
 .quote-icon {
@@ -694,7 +655,6 @@ body {
     display: inline-block;
 }
 
-/* خط صغير تحت اسم العميل */
 .user-info h5::after {
     content: '';
     display: block;
@@ -704,11 +664,9 @@ body {
     margin: 8px auto 0;
 }
 
-/* التجاوب للموبايل */
 @media (max-width: 768px) {
     .testi-grid {
         grid-template-columns: 1fr;
-        /* كرت واحد في الموبايل */
     }
 
     .testi-card {
@@ -716,7 +674,6 @@ body {
     }
 }
 
-/* --- تنسيق الخريطة --- */
 .location-flex {
     display: flex;
     align-items: center;
@@ -751,7 +708,6 @@ body {
     border-bottom: 2px solid var(--gold);
 }
 
-/* --- أنيميشن التمرير المتكرر --- */
 .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -774,7 +730,6 @@ body {
     }
 }
 
-/* --- تنسيق نبذة المتجر في الرئيسية --- */
 .teaser-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -810,7 +765,6 @@ body {
     margin-top: 10px;
 }
 
-/* هيرو صفحة المتجر */
 .shop-hero {
     background: #111;
     color: #fff;
@@ -818,7 +772,6 @@ body {
     border-bottom: 2px solid var(--gold);
 }
 
-/* --- ستايل صفحة المتجر المطور --- */
 
 .shop-page-body {
     background-color: #fcfcfc;
@@ -831,7 +784,6 @@ body {
     border-bottom: 3px solid var(--gold);
 }
 
-/* تنسيق أزرار الفلترة */
 .category-filters {
     display: flex;
     justify-content: center;
@@ -857,16 +809,13 @@ body {
     border-color: var(--gold);
 }
 
-/* --- أهم جزء: شبكة المنتجات (Grid) --- */
 .products-grid {
     display: grid;
-    /* هذا السطر هو الذي يضع 3 منتجات بجانب بعضها */
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
     width: 100%;
 }
 
-/* كارت المنتج */
 .product-card {
     background: #fff;
     border-radius: 15px;
@@ -883,7 +832,6 @@ body {
     box-shadow: 0 15px 40px rgba(197, 160, 89, 0.2);
 }
 
-/* صورة المنتج */
 .pro-img {
     height: 300px;
     overflow: hidden;
@@ -894,11 +842,9 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* يمنع تمطط الصورة ويجعلها فخمة */
     transition: 0.5s;
 }
 
-/* معلومات المنتج */
 .pro-info {
     padding: 20px;
     text-align: center;
@@ -917,7 +863,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* زر الواتساب */
 .add-to-cart-btn {
     background: #25d366;
     color: #fff;
@@ -938,15 +883,12 @@ body {
     background: #1da851;
 }
 
-/* الموبايل */
 @media (max-width: 768px) {
     .products-grid {
         grid-template-columns: 1fr;
-        /* منتج واحد في الصف في الموبايل */
     }
 }
 
-/* بادج التمييز فوق الصورة */
 .pro-tag {
     position: absolute;
     top: 15px;
@@ -961,7 +903,6 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* تنسيق مكونات العطر */
 .pro-notes {
     font-size: 12px;
     color: #888;
@@ -969,7 +910,6 @@ body {
     font-style: italic;
 }
 
-/* شريط البحث */
 .search-container {
     max-width: 500px;
     margin: 0 auto 40px;
@@ -991,7 +931,6 @@ body {
     box-shadow: 0 0 15px rgba(197, 160, 89, 0.2);
 }
 
-/* --- بادج التمييز --- */
 .pro-img {
     position: relative;
 }
@@ -1010,7 +949,6 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* --- مكونات العطر --- */
 .pro-notes {
     font-size: 13px;
     color: #888;
@@ -1026,7 +964,6 @@ body {
     font-size: 11px;
 }
 
-/* --- شريط البحث --- */
 .search-container {
     max-width: 600px;
     margin: 0 auto 40px;
@@ -1056,9 +993,7 @@ body {
     box-shadow: 0 0 15px rgba(197, 160, 89, 0.2);
 }
 
-/* --- تنسيق صفحة السياسات --- */
 
-/* خلفية الهيرو لصفحة السياسات */
 .page-hero-inner {
     height: 350px;
     width: 100%;
@@ -1079,12 +1014,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* صورة فخمة تناسب العطور (خلفية ورد ناعم أو دخان بخور) */
     background-image: url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=2000');
     background-size: cover;
     background-position: center;
     z-index: 1;
-    /* تأثير زوم هادئ مستمر */
     animation: slowZoom 20s infinite alternate;
 }
 
@@ -1104,13 +1037,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* تدرج لوني يكسر السواد */
     background: linear-gradient(to bottom,
             rgba(0, 0, 0, 0.7) 0%,
             rgba(99, 36, 36, 0.4) 50%,
-            /* لمحة من اللون العنابي في المنتصف */
             #ffffff 100%
-            /* ينتهي باللون الأبيض ليدمج مع الكرت بالأسفل */
         );
     z-index: 2;
 }
@@ -1134,7 +1064,6 @@ body {
     border-radius: 25px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
     margin-top: -60px;
-    /* ليتداخل مع الهيرو بشكل أنيق */
     position: relative;
     z-index: 20;
 }
@@ -1171,7 +1100,6 @@ body {
     opacity: 0.3;
 }
 
-/* الموبايل */
 @media (max-width: 768px) {
     .legal-card {
         padding: 30px 20px;
@@ -1186,7 +1114,6 @@ body {
         font-size: 14px;
     }
 }
-/* --- 1. الإعدادات الأساسية --- */
 :root {
     --primary: #111111;
     --gold: #c5a059;
@@ -1210,7 +1137,6 @@ body {
 
 
 
-/* --- 3. واجهة المتجر (Hero) --- */
 .shop-hero {
     background: var(--primary);
     color: #fff;
@@ -1219,7 +1145,6 @@ body {
     position: relative;
 }
 
-/* --- 4. البحث والفلترة --- */
 .shop-controls { margin-bottom: 50px; }
 
 .search-container {
@@ -1246,10 +1171,9 @@ body {
 }
 .filter-btn.active { background: var(--gold); color: #fff; border-color: var(--gold); }
 
-/* --- 5. شبكة المنتجات (الحل الجذري للمشكلة) --- */
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 منتجات في الصف للكمبيوتر */
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     padding: 20px 0;
 }
@@ -1268,7 +1192,7 @@ body {
 .product-card:hover { transform: translateY(-10px); }
 
 .pro-img { height: 300px; width: 100%; background: #fdfdfd; position: relative; }
-.pro-img img { width: 100%; height: 100%; object-fit: cover; } /* منع المطة */
+.pro-img img { width: 100%; height: 100%; object-fit: cover; }
 
 .pro-badge {
     position: absolute; top: 15px; right: 15px;
@@ -1287,7 +1211,6 @@ body {
     display: flex; align-items: center; justify-content: center; gap: 10px;
 }
 
-/* --- 6. الفوتر المطور --- */
 .main-footer-dark {
     background: #000;
     color: #fff;
@@ -1311,7 +1234,6 @@ body {
 
 .footer-bottom-bar { border-top: 1px solid #222; padding-top: 20px; font-size: 13px; color: #555; }
 
-/* --- 7. ضبط الجوال --- */
 @media (max-width: 992px) {
     .products-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -1320,9 +1242,8 @@ body {
     .container { width: 92%; }
     .products-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
-    .nav-links { display: none; } /* يظهر زر الموبايل بدلاً منها */
+    .nav-links { display: none; }
 }
-/* --- تنسيق صفحة تفاصيل المنتج --- */
 .product-details-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1375,7 +1296,6 @@ body {
     .product-details-wrapper { grid-template-columns: 1fr; gap: 30px; }
     .main-img-box { height: 350px; }
 }
-/* تنسيق روابط العناوين في المتجر */
 .pro-title-link {
     text-decoration: none;
     color: inherit;
@@ -1383,7 +1303,7 @@ body {
 }
 
 .pro-title-link:hover h3 {
-    color: var(--gold); /* يتغير لون الاسم للذهبي عند الوقوف عليه */
+    color: var(--gold); 
 }
 
 .pro-buttons {
@@ -1422,7 +1342,7 @@ body {
     position: absolute;
     top: -8px;
     right: -10px;
-    background: #ff3b30; /* أحمر تنبيهي */
+    background: #ff3b30;
     color: white;
     font-size: 11px;
     width: 20px;
@@ -1432,14 +1352,13 @@ body {
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    border: 2px solid #000; /* ليبرز فوق الخلفية السوداء */
+    border: 2px solid #000;
 }
 
 .cart-link:hover {
     transform: scale(1.1);
     color: #fff;
 }
-/* --- تنسيق صفحة الشحن --- */
 .shipping-info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1511,18 +1430,17 @@ body {
     font-weight: bold;
     margin-top: 20px;
 }
-/* --- تنسيق الفوتر الفخم الجديد --- */
 .main-footer-dark {
-    background: #000; /* خلفية سوداء صريحة */
+    background: #000; 
     color: #fff;
     padding: 80px 0 0;
     margin-top: 50px;
-    border-top: 1px solid rgba(197, 160, 89, 0.2); /* خط ذهبي خفيف جداً */
+    border-top: 1px solid rgba(197, 160, 89, 0.2); 
 }
 
 .footer-grid-pro {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr; /* توزيع الأعمدة */
+    grid-template-columns: 1.5fr 1fr 1fr; 
     gap: 50px;
     padding-bottom: 50px;
 }
@@ -1534,7 +1452,6 @@ body {
     font-weight: 700;
 }
 
-/* حذف النقاط وتنسيق الروابط */
 .footer-links {
     list-style: none !important;
     padding: 0 !important;
@@ -1557,11 +1474,10 @@ body {
     padding-inline-start: 5px;
 }
 
-/* تنسيق البراند واللوجو */
 .footer-logo-white {
     height: 60px;
     margin-bottom: 15px;
-    filter: brightness(0) invert(1); /* جعل اللوجو أبيض */
+    filter: brightness(0) invert(1); 
 }
 
 .footer-slogan {
@@ -1571,7 +1487,6 @@ body {
     line-height: 1.6;
 }
 
-/* السوشيال ميديا */
 .footer-social {
     display: flex;
     gap: 15px;
@@ -1588,7 +1503,6 @@ body {
     transform: translateY(-3px);
 }
 
-/* تواصل معنا */
 .footer-contact-details {
     display: flex;
     flex-direction: column;
@@ -1609,7 +1523,6 @@ body {
     width: 20px;
 }
 
-/* شريط الحقوق */
 .footer-copyright-bar {
     background: #0a0a0a;
     padding: 20px 0;
@@ -1630,7 +1543,6 @@ body {
     font-weight: bold;
 }
 
-/* --- ضبط الجوال --- */
 @media (max-width: 768px) {
     .footer-grid-pro {
         grid-template-columns: 1fr;
@@ -1644,20 +1556,16 @@ body {
         gap: 10px;
     }
 }
-/* --- التحكم في ظهور زر اللغة --- */
 
-/* افتراضياً: أخفِ نسخة الموبايل */
 .mobile-only {
     display: none !important;
 }
 
-/* زر الديسكتوب بجانب السلة */
 .desktop-only {
     display: flex !important;
-    animation: pulse-gold 2s infinite; /* النبض المستمر */
+    animation: pulse-gold 2s infinite; 
 }
 
-/* تنسيق عام لزر اللغة */
 .lang-btn {
     background-color: var(--gold);
     color: #fff;
@@ -1672,14 +1580,11 @@ body {
     font-size: 13px;
 }
 
-/* --- ميديا كويري للموبايل --- */
 @media (max-width: 992px) {
-    /* إخفاء زر الديسكتوب */
     .desktop-only {
         display: none !important;
     }
 
-    /* إظهار زر اللغة داخل القائمة */
     .mobile-only {
         display: block !important;
         width: 100%;
@@ -1695,46 +1600,41 @@ body {
     }
 }
 @media (max-width: 992px) {
-    /* تجعل القائمة المنسدلة جزءاً من انسياب الصفحة وليس طائرة */
     .dropdown-menu {
-        position: static !important; /* هذا السطر هو السر */
+        position: static !important; 
         width: 100% !important;
-        background: rgba(255, 255, 255, 0.05) !important; /* خلفية شفافة بسيطة لتمييزها عن القائمة الأم */
+        background: rgba(255, 255, 255, 0.05) !important; 
         box-shadow: none !important;
-        display: none; /* مخفية حتى يتم الضغط */
+        display: none; 
         padding: 0 !important;
         border-radius: 0;
         border: none !important;
     }
 
-    /* عندما تفتح القائمة المنسدلة */
     .dropdown-menu.show {
         display: block !important;
         margin: 10px 0;
     }
 
-    /* تنسيق الروابط الداخلية (عطور رجالية، نسائية...) */
     .dropdown-menu li {
         margin: 0 !important;
         border-bottom: 1px solid rgba(255,255,255,0.02) !important;
     }
 
     .dropdown-menu li a {
-        font-size: 16px !important; /* أصغر قليلاً من الروابط الرئيسية */
+        font-size: 16px !important; 
         color: #ccc !important;
         padding: 12px 0 !important;
         font-weight: 400 !important;
     }
 
-    /* سهم القائمة */
     .dropdown > a i {
         transition: transform 0.3s;
     }
     .dropdown.open > a i {
-        transform: rotate(180deg); /* قلب السهم عند الفتح */
+        transform: rotate(180deg); 
     }
 }
-/* --- أنيميشن النبض الفخم --- */
 @keyframes pulse-gold {
     0% {
         transform: scale(1);
@@ -1750,27 +1650,23 @@ body {
     }
 }
 
-/* تطبيق النبض على أزرار الهيرو */
 .hero-btns a {
     animation: pulse-gold 2s infinite ease-in-out;
 }
 
-/* جعل الزر الثاني (الشفاف) ينبض بشكل أخف */
 .hero-btns .btn-outline {
-    animation-delay: 0.5s; /* تأخير بسيط لعمل تتابع في النبض */
+    animation-delay: 0.5s;
 }
-/* --- تنسيق أزرار التواصل العائمة --- */
 .floating-actions {
     position: fixed;
     bottom: 30px;
-    right: 30px; /* تظهر في اليمين في النسخة العربية */
+    right: 30px;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    z-index: 9999; /* لضمان ظهورها فوق كل محتوى الموقع */
+    z-index: 9999; 
 }
 
-/* تبديل مكان الأزرار لجهة اليسار في النسخة الإنجليزية */
 [lang="en"] .floating-actions {
     right: auto;
     left: 30px;
@@ -1790,32 +1686,27 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* زر الواتساب (أخضر) */
 .float-btn.whatsapp {
     background-color: #25d366;
     animation: pulse-whatsapp 2s infinite;
 }
 
-/* زر الهاتف (ذهبي ليتماشى مع الهوية) */
 .float-btn.phone {
     background-color: var(--gold);
 }
 
-/* أنيميشن النبض لزر الواتساب */
 @keyframes pulse-whatsapp {
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
     70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
-/* تأثير عند تمرير الماوس */
 .float-btn:hover {
     transform: scale(1.15) translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     color: #fff;
 }
 
-/* ضبط الحجم لشاشات الموبايل الصغيرة */
 @media (max-width: 768px) {
     .floating-actions {
         bottom: 20px;
