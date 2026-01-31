@@ -33,74 +33,133 @@
 
     <header class="main-header">
         <div class="container navbar">
-            <!-- اللوجو -->
-            <div class="logo-area" onclick="location.href='index.html'">
+            <!-- اللوجو والاسم الرسمي -->
+            <div class="logo-area" onclick="location.href='index.html'" style="cursor:pointer">
                 <img src="images/logo.png" alt="Logo" class="nav-logo">
                 <div class="brand-name">
-                    <h1>إنسينس</h1>
-                    <span class="legal-name">مؤسسة حلوه مبارك السبيعي</span>
+                    <h1>
+                        <span class="lang-ar">إنسينس</span>
+                        <span class="lang-en">Incense</span>
+                    </h1>
+                    <span class="legal-name">PERFUMES</span>
                 </div>
             </div>
 
-            <!-- القائمة الرئيسية -->
-            <ul class="nav-links">
-                <li><a href="#home" class="lang-ar">الرئيسية</a><a href="#home" class="lang-en">Home</a></li>
-                <li><a href="#about" class="lang-ar">من نحن</a><a href="#about" class="lang-en">About</a></li>
-                <li class="dropdown">
-                    <a href="#perfumes" class="lang-ar">قسم العطور <i class="fas fa-chevron-down"></i></a>
-                    <a href="#perfumes" class="lang-en">Perfumes <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <!-- نرسل اسم القسم في الرابط بعد علامة الاستفهام -->
-                        <li><a href="shop.html?cat=perfumes-men" class="lang-ar">عطور رجالية</a></li>
-                        <li><a href="shop.html?cat=perfumes-women" class="lang-ar">عطور نسائية</a></li>
-                        <li><a href="shop.html?cat=perfumes-body" class="lang-ar">عطور الجسم</a></li>
-                        <li><a href="shop.html?cat=perfumes-hair" class="lang-ar">عطور الشعر</a></li>
-                    </ul>
-                </li>
-                </li>
-                <li><a href="shop.html" class="lang-ar">المتجر</a><a href="shop.html" class="lang-en">Shop</a></li>
+            <!-- القائمة الرئيسية المترجمة -->
+            <nav id="nav-menu">
+                <ul class="nav-links">
+                    <li>
+                        <a href="index.html#home">
+                            <span class="lang-ar">الرئيسية</span>
+                            <span class="lang-en">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#about">
+                            <span class="lang-ar">من نحن</span>
+                            <span class="lang-en">About</span>
+                        </a>
+                    </li>
 
-                <!-- زر اللغة (يظهر فقط في الموبايل داخل القائمة) -->
-                <li class="mobile-only">
-                    <button class="lang-btn langSwitcherBtn">
-                        <i class="fas fa-globe"></i> <span class="langText">English</span>
-                    </button>
-                </li>
-            </ul>
+                    <!-- قائمة العطور المنسدلة مترجمة بالكامل -->
+                    <li class="dropdown">
+                        <a href="shop.html#perfumes">
+                            <span class="lang-ar">قسم العطور <i class="fas fa-chevron-down"></i></span>
+                            <span class="lang-en">Perfumes <i class="fas fa-chevron-down"></i></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="shop.html?cat=perfumes-men">
+                                    <span class="lang-ar">عطور رجالية</span>
+                                    <span class="lang-en">Men's Perfumes</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="shop.html?cat=perfumes-women">
+                                    <span class="lang-ar">عطور نسائية</span>
+                                    <span class="lang-en">Women's Perfumes</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="shop.html?cat=perfumes-body">
+                                    <span class="lang-ar">عطور الجسم</span>
+                                    <span class="lang-en">Body Mists</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="shop.html?cat=perfumes-hair">
+                                    <span class="lang-ar">عطور الشعر</span>
+                                    <span class="lang-en">Hair Perfumes</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="shop.html">
+                            <span class="lang-ar">المتجر</span>
+                            <span class="lang-en">Shop</span>
+                        </a>
+                    </li>
+
+                    <!-- زر اللغة للموبايل -->
+                    <li class="mobile-only">
+                        <button class="lang-btn langSwitcherBtn">
+                            <i class="fas fa-globe"></i>
+                            <span class="langText">English</span>
+                        </button>
+                    </li>
+                </ul>
             </nav>
 
             <div class="header-actions">
                 <!-- أيقونة السلة -->
                 <a href="cart.html" class="cart-link">
-                    <i class="fas fas fa-shopping-cart"></i>
+                    <i class="fas fa-shopping-cart"></i>
                     <span id="cartCount">0</span>
                 </a>
 
-                <!-- زر اللغة (يظهر فقط في الديسكتوب بجانب السلة) -->
+                <!-- زر اللغة للديسكتوب -->
                 <button class="lang-btn langSwitcherBtn desktop-only">
-                    <i class="fas fa-globe"></i> <span class="langText">English</span>
+                    <i class="fas fa-globe"></i>
+                    <span class="langText">English</span>
                 </button>
 
-                <!-- زر الموبايل -->
+                <!-- زر فتح القائمة للموبايل -->
                 <div class="menu-toggle" id="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
                 </div>
             </div>
         </div>
     </header>
-
     <!-- الواجهة (Hero) -->
     <section id="home" class="hero">
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
+            <!-- العنوان الرئيسي -->
             <h2 class="reveal lang-ar">عنوان الفخامة والتميّز</h2>
             <h2 class="reveal lang-en">Title of Luxury & Distinction</h2>
+
+            <!-- الوصف المترجم -->
             <p class="reveal delay-1 lang-ar">أرقى أنواع العطور والبخور ومنتجات التجميل المستوحاة من أصالة التراث
                 العربي.</p>
+            <p class="reveal delay-1 lang-en">The finest perfumes, incense, and beauty products inspired by the
+                authenticity of Arab heritage.</p>
+
+            <!-- الأزرار المترجمة -->
             <div class="hero-btns reveal delay-2">
-                <a href="#perfumes" class="btn-gold lang-ar">تسوق العطور</a>
-                <a href="#oud" class="btn-outline lang-ar">اكتشف العود</a>
+                <!-- زر تسوق العطور -->
+                <a href="#perfumes" class="btn-gold">
+                    <span class="lang-ar">تسوق العطور</span>
+                    <span class="lang-en">Shop Perfumes</span>
+                </a>
+
+                <!-- زر اكتشف العود -->
+                <a href="#oud" class="btn-outline">
+                    <span class="lang-ar">اكتشف العود</span>
+                    <span class="lang-en">Discover Oud</span>
+                </a>
             </div>
         </div>
     </section>
@@ -109,19 +168,36 @@
     <section id="about" class="section-padding container">
         <div class="about-grid">
             <div class="about-text reveal">
+                <!-- البادج العلوي -->
                 <span class="section-tag lang-ar">من نحن</span>
                 <span class="section-tag lang-en">About Us</span>
+
+                <!-- العنوان الرئيسي -->
                 <h2 class="lang-ar">قصة إبداع <span class="maroon-text">إنسينس</span></h2>
-                <p class="lang-ar">نحن إنسينس للعطور متخصصين في تقديم أرقى أنواع العطور والبخور ومنتجات التجميل، نسعى
+                <h2 class="lang-en">The Creative Story of <span class="maroon-text">Incense</span></h2>
+
+                <!-- النص التعريفي بالعربي -->
+                <p class="lang-ar">
+                    نحن إنسينس للعطور متخصصين في تقديم أرقى أنواع العطور والبخور ومنتجات التجميل، نسعى
                     لنكون الخيار الأول لعشاق الفخامة والتميّز. نفتخر بجذورنا العربية وبتراثنا العطري الغني، ونحرص على
-                    تقديم منتجات تجمع بين الأصالة والجودة العالية.</p>
+                    تقديم منتجات تجمع بين الأصالة والجودة العالية.
+                </p>
+
+                <!-- النص التعريفي بالإنجليزي -->
+                <p class="lang-en">
+                    We are Incense Perfumes, specialized in providing the finest perfumes, incense, and beauty products.
+                    We strive to be the first choice for lovers of luxury and excellence. We take pride in our Arab
+                    roots
+                    and our rich aromatic heritage, ensuring products that combine authenticity with high quality.
+                </p>
             </div>
+
+            <!-- جهة الصورة -->
             <div class="about-img reveal">
-                <img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?q=80&w=1000" alt="About">
+                <img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?q=80&w=1000" alt="About Incense">
             </div>
         </div>
     </section>
-
     <!-- سكشن نبذة عن المتجر في الصفحة الرئيسية -->
     <section id="store-teaser" class="section-padding bg-light">
         <div class="container text-center">
@@ -129,6 +205,7 @@
                 <h2 class="lang-ar">مجموعات <span class="gold-text">إنسينس</span> الحصرية</h2>
                 <h2 class="lang-en">Incense <span class="gold-text">Exclusive</span> Collections</h2>
                 <p class="lang-ar">نقدم لكم خلاصة خبرتنا في العطور والعود والجمال</p>
+                <p class="lang-en">Offering you the essence of our expertise in perfumes, oud, and beauty</p>
             </div>
 
             <div class="teaser-grid">
@@ -136,28 +213,41 @@
                 <div class="teaser-card reveal">
                     <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=500" alt="Perfumes">
                     <h3 class="lang-ar">عالم العطور</h3>
-                    <h3 class="lang-en">Perfumes</h3>
-                    <a href="shop.html?cat=perfumes" class="link-gold lang-ar">استكشف المجموعة ←</a>
+                    <h3 class="lang-en">Perfumes World</h3>
+                    <a href="shop.html?cat=perfumes" class="link-gold">
+                        <span class="lang-ar">استكشف المجموعة ←</span>
+                        <span class="lang-en">Explore Collection →</span>
+                    </a>
                 </div>
+
                 <!-- كارت التجميل -->
                 <div class="teaser-card reveal" style="transition-delay: 0.2s;">
                     <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800" alt="Beauty">
                     <h3 class="lang-ar">قسم التجميل</h3>
-                    <h3 class="lang-en">Beauty</h3>
-                    <a href="shop.html?cat=beauty" class="link-gold lang-ar">استكشف المجموعة ←</a>
+                    <h3 class="lang-en">Beauty Department</h3>
+                    <a href="shop.html?cat=beauty" class="link-gold">
+                        <span class="lang-ar">استكشف المجموعة ←</span>
+                        <span class="lang-en">Explore Collection →</span>
+                    </a>
                 </div>
+
                 <!-- كارت العود -->
                 <div class="teaser-card reveal" style="transition-delay: 0.4s;">
                     <img src="https://images.unsplash.com/photo-1588449668365-d15e397f6787?q=80&w=800" alt="Oud">
                     <h3 class="lang-ar">العود والأصالة</h3>
-                    <h3 class="lang-en">Oud</h3>
-                    <a href="shop.html?cat=oud" class="link-gold lang-ar">استكشف المجموعة ←</a>
+                    <h3 class="lang-en">Oud & Authenticity</h3>
+                    <a href="shop.html?cat=oud" class="link-gold">
+                        <span class="lang-ar">استكشف المجموعة ←</span>
+                        <span class="lang-en">Explore Collection →</span>
+                    </a>
                 </div>
             </div>
 
             <div class="mt-5 reveal">
-                <a href="shop.html" class="btn-gold lang-ar">زيارة المتجر بالكامل</a>
-                <a href="shop.html" class="btn-gold lang-en">Visit Full Shop</a>
+                <a href="shop.html" class="btn-gold">
+                    <span class="lang-ar">زيارة المتجر بالكامل</span>
+                    <span class="lang-en">Visit Full Shop</span>
+                </a>
             </div>
         </div>
     </section>
@@ -168,6 +258,7 @@
                 <h2 class="lang-ar">مجموعاتنا <span class="gold-text">الفاخرة</span></h2>
                 <h2 class="lang-en">Our <span class="gold-text">Luxury</span> Collections</h2>
                 <p class="lang-ar">اكتشف تشكيلتنا المختارة من العطور والجمال والعود</p>
+                <p class="lang-en">Discover our curated selection of perfumes, beauty, and oud</p>
             </div>
 
             <div class="categories-grid">
@@ -179,12 +270,21 @@
                     </div>
                     <div class="cat-content">
                         <h3 class="lang-ar">عالم العطور</h3>
+                        <h3 class="lang-en">Perfumes World</h3>
+
                         <ul class="cat-list lang-ar">
                             <li>عطور رجالية ونسائية</li>
                             <li>عطور الجسم والشعر</li>
                         </ul>
-                        <a href="https://wa.me/966503606971?text=أريد الاستفسار عن قسم العطور" class="btn-shop">تسوق
-                            الآن</a>
+                        <ul class="cat-list lang-en">
+                            <li>Men's & Women's Perfumes</li>
+                            <li>Body & Hair Mists</li>
+                        </ul>
+
+                        <a href="https://wa.me/966503606971?text=أريد الاستفسار عن قسم العطور"
+                            class="btn-shop lang-ar">تسوق الآن</a>
+                        <a href="https://wa.me/966503606971?text=I want to inquire about the Perfumes section"
+                            class="btn-shop lang-en">Shop Now</a>
                     </div>
                 </div>
 
@@ -195,12 +295,21 @@
                     </div>
                     <div class="cat-content">
                         <h3 class="lang-ar">التجميل من إنسينس</h3>
+                        <h3 class="lang-en">Beauty by Incense</h3>
+
                         <ul class="cat-list lang-ar">
                             <li>المكياج والعناية بالبشرة</li>
                             <li>العناية بالشعر والجسم</li>
                         </ul>
-                        <a href="https://wa.me/966503606971?text=أريد الاستفسار عن قسم التجميل" class="btn-shop">تسوق
-                            الآن</a>
+                        <ul class="cat-list lang-en">
+                            <li>Makeup & Skincare</li>
+                            <li>Hair & Body Care</li>
+                        </ul>
+
+                        <a href="https://wa.me/966503606971?text=أريد الاستفسار عن قسم التجميل"
+                            class="btn-shop lang-ar">تسوق الآن</a>
+                        <a href="https://wa.me/966503606971?text=I want to inquire about the Beauty section"
+                            class="btn-shop lang-en">Shop Now</a>
                     </div>
                 </div>
 
@@ -211,12 +320,21 @@
                     </div>
                     <div class="cat-content">
                         <h3 class="lang-ar">العود الأصيل</h3>
+                        <h3 class="lang-en">Authentic Oud</h3>
+
                         <ul class="cat-list lang-ar">
                             <li>العود الطبيعي</li>
                             <li>العود المحسن</li>
                         </ul>
-                        <a href="https://wa.me/966503606971?text=أريد الاستفسار عن قسم العود" class="btn-shop">تسوق
-                            الآن</a>
+                        <ul class="cat-list lang-en">
+                            <li>Natural Oud</li>
+                            <li>Enhanced Oud</li>
+                        </ul>
+
+                        <a href="https://wa.me/966503606971?text=أريد الاستفسار عن قسم العود"
+                            class="btn-shop lang-ar">تسوق الآن</a>
+                        <a href="https://wa.me/966503606971?text=I want to inquire about the Oud section"
+                            class="btn-shop lang-en">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -273,15 +391,30 @@
         <div class="container">
             <div class="location-flex flex-grid">
                 <div class="location-info reveal">
+                    <!-- العنوان -->
                     <h2 class="lang-ar">زورونا في <span class="gold-text">مقرنا</span></h2>
+                    <h2 class="lang-en">Visit Our <span class="gold-text">Location</span></h2>
+
+                    <!-- الوصف -->
                     <p class="lang-ar">نسعد باستقبالكم في صالتنا لتجربة أرقى الروائح العطرية والجمالية.</p>
+                    <p class="lang-en">We are pleased to welcome you to our showroom to experience the finest aromatic
+                        and beauty scents.</p>
+
+                    <!-- تفاصيل العنوان -->
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>المملكة العربية السعودية</span>
+                        <span class="lang-ar">المملكة العربية السعودية</span>
+                        <span class="lang-en">Kingdom of Saudi Arabia</span>
                     </div>
-                    <a href="https://maps.google.com" target="_blank" class="map-link">فتح الموقع في الخريطة <i
-                            class="fas fa-external-link-alt"></i></a>
+
+                    <!-- رابط الخريطة -->
+                    <a href="https://maps.google.com" target="_blank" class="map-link">
+                        <span class="lang-ar">فتح الموقع في الخريطة <i class="fas fa-external-link-alt"></i></span>
+                        <span class="lang-en">Open in Maps <i class="fas fa-external-link-alt"></i></span>
+                    </a>
                 </div>
+
+                <!-- صندوق الخريطة -->
                 <div class="map-box reveal">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.502010830491!2d46.6749!3d24.7136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQyJzQ5LjAiTiA0NsKwNDAnMjkuNiJF!5e0!3m2!1sar!2ssa!4v1700000000000"
@@ -379,11 +512,16 @@
             <div class="container flex-between-center">
                 <p>&copy; 2026 جميع الحقوق محفوظة لشركة إنسينس للعطور</p>
                 <div class="dev-credit">
-                    Design & Programming by <a href="#">GMTWEB</a>
+                    Design & Programming by <a href="https://www.facebook.com/profile.php?id=100090592885243&mibextid=ZbWKwL" >GMTWEB</a>
                 </div>
             </div>
         </div>
     </footer>
+        <div class="floating-actions">
+        <a href="https://wa.me/966503606971" target="_blank" class="float-btn whatsapp"><i
+                class="fab fa-whatsapp"></i></a>
+        <a href="tel:+966503606971" class="float-btn phone"><i class="fas fa-phone-alt"></i></a>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
+        /* تنسيقات إضافية مخصصة لصفحة السلة */
         .cart-page-wrapper {
-            margin-top: 50px;
+            margin-top: 30px;
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 30px;
@@ -77,6 +78,7 @@
             border-radius: 8px;
             cursor: pointer;
             transition: 0.3s;
+            font-family: inherit;
         }
 
         .btn-remove:hover {
@@ -84,9 +86,32 @@
             color: #fff;
         }
 
+        .empty-cart-msg {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--gold);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
         @media (max-width: 768px) {
             .cart-page-wrapper {
                 grid-template-columns: 1fr;
+            }
+
+            .cart-item {
+                flex-direction: row;
+                gap: 15px;
+            }
+
+            .cart-item img {
+                width: 70px;
+                height: 90px;
             }
         }
     </style>
@@ -94,49 +119,107 @@
 
 <body class="bg-light">
 
+    <!-- الهيدر الموحد (نفس النسخة المترجمة في بقية الموقع) -->
     <header class="main-header">
         <div class="container navbar">
             <div class="logo-area" onclick="location.href='index.html'" style="cursor:pointer">
                 <img src="images/logo.png" alt="Logo" class="nav-logo">
                 <div class="brand-name">
-                    <h1>إنسينس</h1><span>PERFUMES</span>
+                    <h1><span class="lang-ar">إنسينس</span><span class="lang-en">Incense</span></h1>
+                    <span class="legal-name">PERFUMES</span>
                 </div>
             </div>
-            <a href="shop.html" class="btn-gold">العودة للمتجر</a>
+
+            <nav id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html#home"><span class="lang-ar">الرئيسية</span><span
+                                class="lang-en">Home</span></a></li>
+                    <li><a href="shop.html"><span class="lang-ar">المتجر</span><span class="lang-en">Shop</span></a>
+                    </li>
+                    <li class="mobile-only">
+                        <button class="lang-btn langSwitcherBtn">
+                            <i class="fas fa-globe"></i> <span class="langText">English</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="lang-btn langSwitcherBtn desktop-only">
+                    <i class="fas fa-globe"></i> <span class="langText">English</span>
+                </button>
+                <div class="menu-toggle" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
         </div>
     </header>
 
     <main class="container section-padding">
-        <h2 class="gold-text text-center reveal active" style="font-size: 32px; margin-bottom: 40px;">سلة المشتريات</h2>
+        <h2 class="gold-text text-center reveal active" style="font-size: 32px; margin-bottom: 40px;">
+            <span class="lang-ar">سلة المشتريات</span>
+            <span class="lang-en">Shopping Cart</span>
+        </h2>
 
         <div class="cart-page-wrapper">
+            <!-- قائمة المنتجات -->
             <div id="cartList" class="cart-list reveal active">
-                <!-- المنتجات تظهر هنا -->
+                <!-- جاري التحميل... -->
             </div>
 
+            <!-- ملخص السلة -->
             <aside class="cart-summary-card reveal active">
-                <h3 class="mb-4">ملخص الطلب</h3>
-                <div id="summaryItems"></div>
+                <h3 class="mb-4">
+                    <span class="lang-ar">ملخص الطلب</span>
+                    <span class="lang-en">Order Summary</span>
+                </h3>
                 <div class="total-row">
-                    <span>الإجمالي:</span>
+                    <span class="lang-ar">الإجمالي:</span>
+                    <span class="lang-en">Total:</span>
                     <span id="finalTotal">0 SAR</span>
                 </div>
                 <button onclick="sendOrder()" class="add-to-cart-btn"
-                    style="background:#25d366; border:none; padding:18px;">
-                    إرسال الطلب عبر واتساب <i class="fab fa-whatsapp"></i>
+                    style="background:#25d366; border:none; padding:18px; width:100%; border-radius:15px; color:#fff; font-weight:bold; cursor:pointer;">
+                    <span class="lang-ar">إرسال الطلب عبر واتساب <i class="fab fa-whatsapp"></i></span>
+                    <span class="lang-en">Send Order via WhatsApp <i class="fab fa-whatsapp"></i></span>
                 </button>
+                <div class="text-center">
+                    <a href="shop.html" class="btn-back">
+                        <span class="lang-ar">← العودة للمتجر</span>
+                        <span class="lang-en">← Back to Shop</span>
+                    </a>
+                </div>
             </aside>
         </div>
     </main>
 
+    <!-- الفوتر الموحد -->
+    <footer class="main-footer-dark">
+        <div class="container text-center" style="padding: 20px 0;">
+            <p>&copy; 2026 إنسينس للعطور - جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <!-- ملف السكريبت الرئيسي -->
+    <script src="script.js"></script>
+
+    <!-- سكريبت خاص بإدارة عرض السلة فقط -->
     <script>
         function renderCart() {
             const cart = JSON.parse(localStorage.getItem('incenseCart')) || [];
             const container = document.getElementById('cartList');
             const summary = document.getElementById('finalTotal');
+            const htmlLang = document.documentElement.getAttribute('lang') || 'ar';
 
             if (cart.length === 0) {
-                container.innerHTML = `<div class="text-center"><h3>السلة فارغة حالياً</h3><br><a href="shop.html" class="gold-text">ابدأ التسوق من هنا</a></div>`;
+                container.innerHTML = `
+                    <div class="empty-cart-msg">
+                        <i class="fas fa-shopping-basket" style="font-size: 50px; color: #ddd; margin-bottom: 20px;"></i>
+                        <h3 class="lang-ar">السلة فارغة حالياً</h3>
+                        <h3 class="lang-en">Your cart is empty</h3>
+                        <a href="shop.html" class="gold-text lang-ar">ابدأ التسوق من هنا</a>
+                        <a href="shop.html" class="gold-text lang-en">Start shopping here</a>
+                    </div>`;
                 summary.textContent = "0 SAR";
                 return;
             }
@@ -144,14 +227,19 @@
             let total = 0;
             container.innerHTML = cart.map(item => {
                 total += item.price * item.quantity;
+                const name = htmlLang === 'en' ? item.nameEn : item.nameAr;
                 return `
                     <div class="cart-item">
-                        <img src="${item.img}" alt="">
+                        <img src="${item.img}" alt="${name}">
                         <div class="cart-item-info" style="flex-grow:1">
-                            <h4>${item.nameAr}</h4>
+                            <h4>${name}</h4>
                             <p>${item.price} SAR × ${item.quantity}</p>
                         </div>
-                        <button class="btn-remove" onclick="removeItem(${item.id})"><i class="fas fa-trash"></i> حذف</button>
+                        <button class="btn-remove" onclick="removeItem(${item.id})">
+                            <i class="fas fa-trash"></i> 
+                            <span class="lang-ar">حذف</span>
+                            <span class="lang-en">Delete</span>
+                        </button>
                     </div>
                 `;
             }).join('');
@@ -164,21 +252,35 @@
             cart = cart.filter(item => item.id !== id);
             localStorage.setItem('incenseCart', JSON.stringify(cart));
             renderCart();
+            if (typeof updateCartBadge === 'function') updateCartBadge();
         }
 
         function sendOrder() {
             const cart = JSON.parse(localStorage.getItem('incenseCart')) || [];
-            let message = "طلب جديد من المتجر الإلكتروني:%0A%0A";
+            const htmlLang = document.documentElement.getAttribute('lang') || 'ar';
+
+            let message = htmlLang === 'en' ? "New order from online shop:%0A%0A" : "طلب جديد من المتجر الإلكتروني:%0A%0A";
             let total = 0;
+
             cart.forEach(item => {
-                message += `• ${item.nameAr} (الكمية: ${item.quantity})%0A`;
+                const name = htmlLang === 'en' ? item.nameEn : item.nameAr;
+                message += `• ${name} (Qty: ${item.quantity})%0A`;
                 total += item.price * item.quantity;
             });
-            message += `%0A*الإجمالي النهائي: ${total} SAR*`;
+
+            message += `%0A*Total: ${total} SAR*`;
             window.open(`https://wa.me/966503606971?text=${message}`, '_blank');
         }
 
-        renderCart();
+        // تشغيل العرض عند تحميل الصفحة
+        window.addEventListener('load', renderCart);
+
+        // ربط تغيير اللغة بإعادة رسم السلة
+        document.querySelectorAll('.langSwitcherBtn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setTimeout(renderCart, 100); // تأخير بسيط لضمان تغير الـ lang في الـ HTML أولاً
+            });
+        });
     </script>
 </body>
 

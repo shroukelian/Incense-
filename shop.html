@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر إنسينس الكامل | عالم الفخامة</title>
+    <title>المتجر الإلكتروني | إنسينس</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
@@ -12,41 +12,57 @@
 
 <body class="shop-page-body">
 
-    <!-- الهيدر الموحد -->
+    <!-- الهيدر الموحد والمترجم -->
     <header class="main-header">
         <div class="container navbar">
             <!-- اللوجو -->
-            <div class="logo-area" onclick="location.href='index.html'">
-                <img src="images/logo.png" alt="Logo" class="nav-logo">
+            <div class="logo-area" onclick="location.href='index.html'" style="cursor:pointer">
+                <img src="images/logo.png" alt="Incense Logo" class="nav-logo">
                 <div class="brand-name">
-                    <h1>إنسينس</h1>
-                    <span class="legal-name">مؤسسة حلوه مبارك السبيعي</span>
+                    <h1>
+                        <span class="lang-ar">إنسينس</span>
+                        <span class="lang-en">Incense</span>
+                    </h1>
+                      <span class="legal-name">PERFUMES</span>
                 </div>
             </div>
 
             <!-- القائمة الرئيسية -->
-            <ul class="nav-links">
-                <li><a href="#home" class="lang-ar">الرئيسية</a><a href="#home" class="lang-en">Home</a></li>
-                <li><a href="#about" class="lang-ar">من نحن</a><a href="#about" class="lang-en">About</a></li>
-                </li>
-                <li><a href="shop.html" class="lang-ar">المتجر</a><a href="shop.html" class="lang-en">Shop</a></li>
+            <nav id="nav-menu">
+                <ul class="nav-links">
+                    <li>
+                        <a href="index.html">
+                            <span class="lang-ar">الرئيسية</span><span class="lang-en">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#about">
+                            <span class="lang-ar">من نحن</span><span class="lang-en">About</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="shop.html" class="active">
+                            <span class="lang-ar">المتجر</span><span class="lang-en">Shop</span>
+                        </a>
+                    </li>
 
-                <!-- زر اللغة (يظهر فقط في الموبايل داخل القائمة) -->
-                <li class="mobile-only">
-                    <button class="lang-btn langSwitcherBtn">
-                        <i class="fas fa-globe"></i> <span class="langText">English</span>
-                    </button>
-                </li>
-            </ul>
+                    <!-- زر اللغة للموبايل -->
+                    <li class="mobile-only">
+                        <button class="lang-btn langSwitcherBtn">
+                            <i class="fas fa-globe"></i> <span class="langText">English</span>
+                        </button>
+                    </li>
+                </ul>
             </nav>
 
             <div class="header-actions">
                 <!-- أيقونة السلة -->
                 <a href="cart.html" class="cart-link">
-                    <i class="fas fas fa-shopping-cart"></i>
+                    <i class="fas fa-shopping-cart"></i>
                     <span id="cartCount">0</span>
                 </a>
 
+                <!-- زر اللغة للديسكتوب -->
                 <button class="lang-btn langSwitcherBtn desktop-only">
                     <i class="fas fa-globe"></i> <span class="langText">English</span>
                 </button>
@@ -60,40 +76,51 @@
     </header>
 
 
-    <!-- عنوان المتجر -->
+    <!-- عنوان المتجر المترجم -->
     <section class="shop-hero">
         <div class="hero-overlay-dark"></div>
         <div class="container text-center hero-content-inner">
-            <h1 class="lang-ar">متجر إنسينس الإلكتروني</h1>
-            <h1 class="lang-en">Incense Online Store</h1>
-            <p class="lang-ar">أرقى العطور والعود في متناول يدك</p>
+            <h1 class="lang-ar animate-up">متجر إنسينس الإلكتروني</h1>
+            <h1 class="lang-en animate-up">Incense Online Store</h1>
+            <p class="lang-ar animate-up">أرقى العطور والعود في متناول يدك</p>
+            <p class="lang-en animate-up">The finest perfumes and oud at your fingertips</p>
         </div>
     </section>
 
     <main class="container section-padding">
-        <!-- البحث والفلترة -->
+        <!-- البحث والفلترة مترجمة -->
         <div class="shop-controls reveal">
             <div class="search-container">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن عطر أو بخور...">
+                <input type="text" id="searchInput" class="search-input lang-ar" placeholder="ابحث عن عطر أو بخور...">
+                <input type="text" id="searchInputEn" class="search-input lang-en" placeholder="Search for perfumes or oud...">
             </div>
+            
             <div class="category-filters">
-                <button class="filter-btn active" data-filter="all">الكل</button>
-                <button class="filter-btn" data-filter="perfumes">العطور</button>
-                <button class="filter-btn" data-filter="beauty">التجميل</button>
-                <button class="filter-btn" data-filter="oud">العود</button>
+                <button class="filter-btn active" data-filter="all">
+                    <span class="lang-ar">الكل</span><span class="lang-en">All</span>
+                </button>
+                <button class="filter-btn" data-filter="perfumes">
+                    <span class="lang-ar">العطور</span><span class="lang-en">Perfumes</span>
+                </button>
+                <button class="filter-btn" data-filter="beauty">
+                    <span class="lang-ar">التجميل</span><span class="lang-en">Beauty</span>
+                </button>
+                <button class="filter-btn" data-filter="oud">
+                    <span class="lang-ar">العود</span><span class="lang-en">Oud</span>
+                </button>
             </div>
         </div>
 
-        <!-- شبكة المنتجات -->
+        <!-- شبكة المنتجات (يتم تعبئتها عبر script.js) -->
         <div class="products-grid" id="productsGrid"></div>
     </main>
 
-    <!-- الفوتر القانوني (مهم جداً) -->
+    <!-- الفوتر الموحد والمترجم -->
     <footer class="main-footer-dark">
         <div class="container footer-grid-pro">
 
-            <!-- العمود الأول: العلامة التجارية -->
+            <!-- العمود الأول -->
             <div class="footer-col brand-col">
                 <img src="images/logo.png" alt="Incense Logo" class="footer-logo-white">
                 <p class="footer-slogan lang-ar">إنسينس للعطور - حيث تلتقي الأصالة بالفخامة.</p>
@@ -105,21 +132,18 @@
                 </div>
             </div>
 
-            <!-- العمود الثاني: روابط تهمك (بدون نقاط) -->
+            <!-- العمود الثاني -->
             <div class="footer-col">
                 <h4 class="footer-title lang-ar">روابط تهمك</h4>
                 <h4 class="footer-title lang-en">Useful Links</h4>
                 <ul class="footer-links">
-                    <li><a href="cart.html"><span class="lang-ar">سلة المشتريات</span><span class="lang-en">Shopping
-                                Cart</span></a></li>
-                    <li><a href="shipping.html"><span class="lang-ar">معلومات الشحن والتوصيل</span><span
-                                class="lang-en">Shipping Info</span></a></li>
-                    <li><a href="policy.html"><span class="lang-ar">سياسة الخصوصية</span><span class="lang-en">Privacy
-                                Policy</span></a></li>
+                    <li><a href="cart.html"><span class="lang-ar">سلة المشتريات</span><span class="lang-en">Cart</span></a></li>
+                    <li><a href="shipping.html"><span class="lang-ar">الشحن والتوصيل</span><span class="lang-en">Shipping</span></a></li>
+                    <li><a href="policy.html"><span class="lang-ar">سياسة الخصوصية</span><span class="lang-en">Privacy</span></a></li>
                 </ul>
             </div>
 
-            <!-- العمود الثالث: تواصل معنا -->
+            <!-- العمود الثالث -->
             <div class="footer-col">
                 <h4 class="footer-title lang-ar">تواصل معنا</h4>
                 <h4 class="footer-title lang-en">Contact Us</h4>
@@ -134,23 +158,19 @@
                     </a>
                 </div>
             </div>
-
         </div>
 
-        <!-- شريط الحقوق السفلي -->
         <div class="footer-copyright-bar">
             <div class="container flex-between-center">
                 <p>&copy; 2026 جميع الحقوق محفوظة لشركة إنسينس للعطور</p>
                 <div class="dev-credit">
-                    Design & Programming by <a href="#">GMTWEB</a>
+                    Design & Programming by <a href="https://www.facebook.com/profile.php?id=100090592885243&mibextid=ZbWKwL" >GMTWEB</a>
                 </div>
             </div>
         </div>
     </footer>
-    <!-- زر واتساب عائم -->
-    <a href="https://wa.me/966503606971" class="whatsapp-float pulse" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+
+
 
     <script src="script.js"></script>
 </body>

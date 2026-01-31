@@ -10,43 +10,67 @@
 </head>
 <body class="details-page">
 
-    <!-- الهيدر الموحد -->
+    <!-- الهيدر الموحد (يجب أن يكون متطابقاً في كل الصفحات) -->
     <header class="main-header">
         <div class="container navbar">
-            <div class="logo-area" onclick="location.href='index.html'">
-                <img src="images/logo.png" alt="Incense Logo" class="nav-logo">
-                <div class="brand-name"><h1>إنسينس</h1><span>PERFUMES</span></div>
+            <div class="logo-area" onclick="location.href='index.html'" style="cursor:pointer">
+                <img src="images/logo.png" alt="Logo" class="nav-logo">
+                <div class="brand-name">
+                    <h1><span class="lang-ar">إنسينس</span><span class="lang-en">Incense</span></h1>
+                    <span class="legal-name">PERFUMES</span>
+                </div>
             </div>
+
             <nav id="nav-menu">
                 <ul class="nav-links">
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="shop.html">المتجر</a></li>
-                    <li><a href="index.html#about">من نحن</a></li>
+                    <li><a href="index.html"><span class="lang-ar">الرئيسية</span><span class="lang-en">Home</span></a></li>
+                    <li><a href="shop.html"><span class="lang-ar">المتجر</span><span class="lang-en">Shop</span></a></li>
+                    <!-- زر اللغة للموبايل -->
+                    <li class="mobile-only">
+                        <button class="lang-btn langSwitcherBtn">
+                            <i class="fas fa-globe"></i> <span class="langText">English</span>
+                        </button>
+                    </li>
                 </ul>
             </nav>
-            <button id="langSwitcher" class="lang-btn">English</button>
+
+            <div class="header-actions">
+                <!-- أيقونة السلة -->
+                <a href="cart.html" class="cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cartCount">0</span>
+                </a>
+                <!-- زر اللغة للديسكتوب -->
+                <button id="langSwitcher" class="lang-btn langSwitcherBtn desktop-only">
+                    <i class="fas fa-globe"></i> <span class="langText">English</span>
+                </button>
+                <!-- زر الموبايل -->
+                <div class="menu-toggle" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- واجهة الصفحة (Hero) -->
+    <!-- واجهة الصفحة -->
     <section class="page-hero-inner">
         <div class="hero-overlay-dark"></div>
         <div class="container hero-content-inner">
             <h1 class="lang-ar animate-up">السياسات والخصوصية</h1>
             <h1 class="lang-en animate-up">Privacy & Policies</h1>
             <p class="lang-ar">كل ما يخص حقوقكم وشروط الاستخدام لدينا</p>
+            <p class="lang-en">Everything regarding your rights and terms of use</p>
         </div>
     </section>
 
-    <!-- محتوى السياسات المنسق -->
     <main class="container section-padding">
-        <div class="legal-card reveal">
+        <div class="legal-card reveal active">
             
             <!-- سياسة الاستبدال -->
             <div class="legal-section">
                 <h3><i class="fas fa-sync-alt"></i> <span class="lang-ar">سياسة الاستبدال والاسترجاع</span><span class="lang-en">Return & Exchange Policy</span></h3>
                 <p class="lang-ar">حرصاً منا على سلامتكم، فإن العطور ومنتجات التجميل لا يتم استرجاعها أو استبدالها بعد فتح التغليف الأصلي، إلا في حال وجود خلل مصنعي أو خطأ في المنتج المرسل. يجب الإبلاغ عن المشكلة خلال 24 ساعة من استلام الطلب.</p>
-                <p class="lang-en">For your safety, perfumes and beauty products are non-returnable once the seal is broken, unless there is a manufacturing defect. Issues must be reported within 24 hours of receipt.</p>
+                <p class="lang-en">For your safety, perfumes and beauty products cannot be returned or exchanged after opening the original packaging, except in cases of manufacturing defects or errors in the delivered product. Issues must be reported within 24 hours of receipt.</p>
             </div>
 
             <div class="divider-gold"></div>
@@ -54,8 +78,8 @@
             <!-- سياسة الخصوصية -->
             <div class="legal-section">
                 <h3><i class="fas fa-user-shield"></i> <span class="lang-ar">سياسة الخصوصية</span><span class="lang-en">Privacy Policy</span></h3>
-                <p class="lang-ar">نحن نلتزم بحماية بياناتكم الشخصية. المعلومات المجمعة (الاسم، العنوان، الهاتف) تستخدم فقط لغرض إتمام عمليات الشحن والتوصيل، ولن يتم مشاركتها مع أي جهة خارجية دون إذنكم.</p>
-                <p class="lang-en">We are committed to protecting your personal data. The information collected is used solely for shipping and delivery purposes and will never be shared with third parties.</p>
+                <p class="lang-ar">نحن نلتزم بحماية بياناتكم الشخصية. المعلومات المجمعة (الاسم، العنوان، الهاتف) تستخدم فقط لغرض إتمام عمليات الشحن والتواصل معكم بخصوص طلباتكم، ولن يتم مشاركتها مع أي جهة خارجية دون إذنكم.</p>
+                <p class="lang-en">We are committed to protecting your personal data. Collected information (name, address, phone) is used solely for shipping and communication purposes regarding your orders and will never be shared with third parties without your permission.</p>
             </div>
 
             <div class="divider-gold"></div>
@@ -64,18 +88,24 @@
             <div class="legal-section">
                 <h3><i class="fas fa-truck"></i> <span class="lang-ar">الشحن والتوصيل</span><span class="lang-en">Shipping & Delivery</span></h3>
                 <p class="lang-ar">يتم التوصيل داخل المملكة العربية السعودية خلال 2-5 أيام عمل. يتم تحديد تكلفة الشحن بناءً على المنطقة وتظهر لكم بوضوح عند تأكيد الطلب عبر الواتساب.</p>
-                <p class="lang-en">Delivery within Saudi Arabia takes 2-5 business days. Shipping costs are determined based on the region and are confirmed via WhatsApp.</p>
+                <p class="lang-en">Delivery within the Kingdom of Saudi Arabia takes 2-5 business days. Shipping costs are determined based on the region and are clearly shown when confirming the order via WhatsApp.</p>
             </div>
 
         </div>
     </main>
 
     <!-- الفوتر الموحد -->
-    <footer class="footer">
-        <div class="container text-center">
+    <footer class="main-footer-dark">
+        <div class="container text-center" style="padding: 20px 0;">
             <p style="text-align: center;">&copy; 2026 إنسينس للعطور - جميع الحقوق محفوظة</p>
         </div>
     </footer>
+
+    <!-- أزرار التواصل العائمة -->
+    <div class="floating-actions">
+        <a href="https://wa.me/966503606971" target="_blank" class="float-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+966503606971" class="float-btn phone"><i class="fas fa-phone-alt"></i></a>
+    </div>
 
     <script src="script.js"></script>
 </body>

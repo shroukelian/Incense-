@@ -1,80 +1,118 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" id="mainHtml">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>معلومات الشحن والتتبع | إنسينس</title>
+    <title>الشحن والتتبع | إنسينس</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
+
 <body class="details-page">
 
-    <!-- الهيدر الموحد -->
+    <!-- الهيدر الموحد والمترجم -->
     <header class="main-header">
         <div class="container navbar">
             <div class="logo-area" onclick="location.href='index.html'" style="cursor:pointer">
                 <img src="images/logo.png" alt="Logo" class="nav-logo">
-                <div class="brand-name"><h1>إنسينس</h1><span>PERFUMES</span></div>
+                <div class="brand-name">
+                    <h1><span class="lang-ar">إنسينس</span><span class="lang-en">Incense</span></h1>
+                    <span class="legal-name">PERFUMES</span>
+                </div>
             </div>
+
             <nav id="nav-menu">
                 <ul class="nav-links">
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="shop.html">المتجر</a></li>
-                    <li><a href="shipping.html" class="active">الشحن والتتبع</a></li>
+                    <li><a href="index.html"><span class="lang-ar">الرئيسية</span><span class="lang-en">Home</span></a>
+                    </li>
+                    <li><a href="shop.html"><span class="lang-ar">المتجر</span><span class="lang-en">Shop</span></a>
+                    </li>
+                    <li><a href="shipping.html" class="active"><span class="lang-ar">الشحن والتتبع</span><span
+                                class="lang-en">Shipping</span></a></li>
+                    <li class="mobile-only">
+                        <button class="lang-btn langSwitcherBtn">
+                            <i class="fas fa-globe"></i> <span class="langText">English</span>
+                        </button>
+                    </li>
                 </ul>
             </nav>
-            <button id="langSwitcher" class="lang-btn">English</button>
+
+            <div class="header-actions">
+                <a href="cart.html" class="cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cartCount">0</span>
+                </a>
+                <button class="lang-btn langSwitcherBtn desktop-only">
+                    <i class="fas fa-globe"></i> <span class="langText">English</span>
+                </button>
+                <div class="menu-toggle" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- واجهة الصفحة -->
-    <section class="page-hero-inner" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1566576721346-d4a3b4eaad5b?q=80&w=1500') center/cover;">
-        <div class="container hero-content-inner">
+    <section class="page-hero-inner"
+        style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1566576721346-d4a3b4eaad5b?q=80&w=1500') center/cover;">
+        <div class="container hero-content-inner text-center">
             <h1 class="lang-ar animate-up">الشحن وتتبع الطلب</h1>
-            <h1 class="lang-en animate-up">Shipping & Tracking</h1>
-            <p class="lang-ar">كل ما تريد معرفته عن وصول عطورك المفضلة إليك</p>
+            <h1 class="lang-en animate-up">Shipping & Order Tracking</h1>
+            <p class="lang-ar animate-up">كل ما تريد معرفته عن وصول عطورك المفضلة إليك</p>
+            <p class="lang-en animate-up">Everything you need to know about receiving your perfumes</p>
         </div>
     </section>
 
     <main class="container section-padding">
-        <div class="shipping-info-grid reveal active">
-            
+        <div class="shipping-info-grid">
+
             <!-- كارت 1: مدة التوصيل -->
-            <div class="info-card">
+            <div class="info-card reveal active">
                 <i class="fas fa-shipping-fast"></i>
                 <h4 class="lang-ar">مدة التوصيل</h4>
                 <h4 class="lang-en">Delivery Time</h4>
-                <p class="lang-ar">داخل القصيم: خلال 24-48 ساعة.<br>بقية مناطق المملكة: 3-5 أيام عمل.</p>
-                <p class="lang-en">Inside Qassim: 24-48 hours.<br>Other regions: 3-5 business days.</p>
+                <div class="lang-ar">
+                    <p>داخل القصيم: خلال 24-48 ساعة.</p>
+                    <p>بقية مناطق المملكة: 3-5 أيام عمل.</p>
+                </div>
+                <div class="lang-en">
+                    <p>Within Qassim: 24-48 hours.</p>
+                    <p>Other regions in KSA: 3-5 business days.</p>
+                </div>
             </div>
 
             <!-- كارت 2: تكلفة الشحن -->
-            <div class="info-card">
+            <div class="info-card reveal active">
                 <i class="fas fa-wallet"></i>
                 <h4 class="lang-ar">تكلفة الشحن</h4>
                 <h4 class="lang-en">Shipping Cost</h4>
-                <p class="lang-ar">شحن مجاني للطلبات فوق 500 ريال.<br>الطلبات الأخرى: تخضع لرسوم شركة الشحن (حسب المنطقة).</p>
-                <p class="lang-en">Free shipping for orders over 500 SAR.<br>Otherwise: Subject to courier fees.</p>
+                <p class="lang-ar">شحن مجاني للطلبات فوق 500 ريال. الطلبات الأخرى تخضع لرسوم شركة الشحن حسب المنطقة.</p>
+                <p class="lang-en">Free shipping for orders above 500 SAR. Other orders are subject to courier fees.</p>
             </div>
 
             <!-- كارت 3: شركات الشحن -->
-            <div class="info-card">
+            <div class="info-card reveal active">
                 <i class="fas fa-box"></i>
                 <h4 class="lang-ar">شركاء النجاح</h4>
                 <h4 class="lang-en">Shipping Partners</h4>
-                <p class="lang-ar">نتعامل مع أفضل شركات الشحن لضمان وصول العطور بأمان (سمسا، أرامكس، سبل).</p>
-                <p class="lang-en">We partner with top couriers (SMSA, Aramex, SPL) for safe delivery.</p>
+                <p class="lang-ar">نتعامل مع أفضل الشركات لضمان وصول العطور بأمان: سمسا، أرامكس، وسبل.</p>
+                <p class="lang-en">We partner with top couriers for safe delivery: SMSA, Aramex, and SPL.</p>
             </div>
         </div>
 
         <!-- قسم التتبع اليدوي -->
-        <div class="tracking-section reveal">
+        <div class="tracking-section reveal active">
             <div class="tracking-box">
                 <h2 class="gold-text lang-ar">كيف أتتبع طلبي؟</h2>
                 <h2 class="gold-text lang-en">How to track my order?</h2>
-                <p class="lang-ar">بما أن الطلب يتم عبر الواتساب، سيقوم فريقنا بتزويدك بـ <strong>رقم التتبع</strong> فور تسليم الشحنة لشركة الشحن. يمكنك الضغط على شعار الشركة بالأسفل وتدخلي رقم التتبع:</p>
-                
+
+                <p class="lang-ar">بما أن الطلب يتم عبر الواتساب، سيقوم فريقنا بتزويدك بـ <strong>رقم التتبع</strong>
+                    فور تسليم الشحنة. يمكنك الضغط على الشركة المختارة وتدخلي الرقم:</p>
+                <p class="lang-en">As orders are placed via WhatsApp, we will provide you with a <strong>tracking
+                        number</strong> once shipped. Click on your courier to track:</p>
+
                 <div class="courier-logos">
                     <a href="https://www.smsaexpress.com/ar/tracking" target="_blank">SMSA</a>
                     <a href="https://www.aramex.com/ar/track/shipments" target="_blank">Aramex</a>
@@ -82,21 +120,33 @@
                 </div>
 
                 <div class="mt-5">
-                    <p class="lang-ar">أو تواصلي مباشرة مع خدمة العملاء:</p>
+                    <p class="lang-ar">أو تواصلي مباشرة مع خدمة العملاء للتتبع:</p>
+                    <p class="lang-en">Or contact customer service directly for tracking:</p>
                     <a href="https://wa.me/966503606971" class="btn-wa-track">
-                        <i class="fab fa-whatsapp"></i> تتبع عبر واتساب
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="lang-ar">تتبع عبر واتساب</span>
+                        <span class="lang-en">Track via WhatsApp</span>
                     </a>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- الفوتر الموحد -->
     <footer class="main-footer-dark">
-        <div class="container text-center">
+        <div class="container text-center" style="padding: 20px 0;">
             <p style="text-align: center;">&copy; 2026 إنسينس للعطور - جميع الحقوق محفوظة</p>
         </div>
     </footer>
 
+    <!-- أزرار التواصل العائمة -->
+    <div class="floating-actions">
+        <a href="https://wa.me/966503606971" target="_blank" class="float-btn whatsapp"><i
+                class="fab fa-whatsapp"></i></a>
+        <a href="tel:+966503606971" class="float-btn phone"><i class="fas fa-phone-alt"></i></a>
+    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>

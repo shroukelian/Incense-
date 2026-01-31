@@ -1734,3 +1734,98 @@ body {
         transform: rotate(180deg); /* قلب السهم عند الفتح */
     }
 }
+/* --- أنيميشن النبض الفخم --- */
+@keyframes pulse-gold {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 15px rgba(197, 160, 89, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
+    }
+}
+
+/* تطبيق النبض على أزرار الهيرو */
+.hero-btns a {
+    animation: pulse-gold 2s infinite ease-in-out;
+}
+
+/* جعل الزر الثاني (الشفاف) ينبض بشكل أخف */
+.hero-btns .btn-outline {
+    animation-delay: 0.5s; /* تأخير بسيط لعمل تتابع في النبض */
+}
+/* --- تنسيق أزرار التواصل العائمة --- */
+.floating-actions {
+    position: fixed;
+    bottom: 30px;
+    right: 30px; /* تظهر في اليمين في النسخة العربية */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999; /* لضمان ظهورها فوق كل محتوى الموقع */
+}
+
+/* تبديل مكان الأزرار لجهة اليسار في النسخة الإنجليزية */
+[lang="en"] .floating-actions {
+    right: auto;
+    left: 30px;
+}
+
+.float-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 30px;
+    text-decoration: none;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* زر الواتساب (أخضر) */
+.float-btn.whatsapp {
+    background-color: #25d366;
+    animation: pulse-whatsapp 2s infinite;
+}
+
+/* زر الهاتف (ذهبي ليتماشى مع الهوية) */
+.float-btn.phone {
+    background-color: var(--gold);
+}
+
+/* أنيميشن النبض لزر الواتساب */
+@keyframes pulse-whatsapp {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* تأثير عند تمرير الماوس */
+.float-btn:hover {
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    color: #fff;
+}
+
+/* ضبط الحجم لشاشات الموبايل الصغيرة */
+@media (max-width: 768px) {
+    .floating-actions {
+        bottom: 20px;
+        right: 20px;
+        gap: 10px;
+    }
+    
+    .float-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+}

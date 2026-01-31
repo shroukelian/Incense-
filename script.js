@@ -1,4 +1,6 @@
-// مصفوفة البيانات يجب أن تكون في البداية لتكون متاحة لكل الوظائف
+// ==========================================
+// 1. قاعدة بيانات المنتجات (Global Scope)
+// ==========================================
 const productData = [
     { 
         id: 1, cat: 'perfumes', badge: 'الأكثر مبيعاً',
@@ -18,20 +20,26 @@ const productData = [
         price: 450, notes: 'بخور طبيعي ثبات عالي', 
         img: 'images/p3.webp' 
     }
-    // يمكنك إضافة باقي الـ 26 منتج هنا بنفس التنسيق
+    // يمكنك إضافة الـ 26 منتج هنا لاحقاً بنفس التنسيق
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. تعريف العناصر (المرتبطة بالـ HTML) ---
-    const langBtn = document.getElementById('langSwitcher');
+    // ==========================================
+    // 2. تعريف العناصر (Selectors)
+    // ==========================================
     const htmlTag = document.documentElement;
     const grid = document.getElementById('productsGrid');
     const searchInput = document.getElementById('searchInput');
-    const menuBtn = document.getElementById('mobile-menu-btn'); // تأكد أن الـ ID مطابق في الـ HTML
-    const navMenu = document.getElementById('nav-menu');
+    const langBtns = document.querySelectorAll('.langSwitcherBtn'); 
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const dropdownToggle = document.querySelector('.dropdown > a');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
 
-    // --- 2. وظيفة عرض المنتجات ---
+    // ==========================================
+    // 3. وظيفة عرض المنتجات (Display Logic)
+    // ==========================================
     function displayProducts(filter = 'all', query = '') {
         if (!grid) return;
         grid.innerHTML = '';
@@ -54,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.innerHTML = `
                 <div class="pro-img">
                     ${p.badge ? `<span class="pro-badge">${p.badge}</span>` : ''}
-                    <a href="product-details.html?id=${p.id}"><img src="${p.img}" alt="${p.nameAr}"></a>
+                    <a href="product-details.html?id=${p.id}"><img src="${p.img}" alt="${p.nameAr}" onerror="this.src='https://via.placeholder.com/300x400?text=Incense'"></a>
                 </div>
                 <div class="pro-info">
                     <a href="product-details.html?id=${p.id}" class="pro-title-link">
@@ -75,48 +83,77 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 3. معالجة تبديل اللغة ---
+    // ==========================================
+    // 4. معالجة اللغة (Bilingual Logic)
+    // ==========================================
     function applyLanguage(lang) {
         htmlTag.setAttribute('lang', lang);
         htmlTag.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-        if (langBtn) {
-            langBtn.innerHTML = lang === 'ar' ? '<i class="fas fa-globe"></i> English' : '<i class="fas fa-globe"></i> العربية';
-        }
+        
+        langBtns.forEach(btn => {
+            const textSpan = btn.querySelector('.langText');
+            if (textSpan) {
+                textSpan.textContent = lang === 'ar' ? 'English' : 'العربية';
+            }
+        });
+
         localStorage.setItem('incenseLang', lang);
-        displayProducts(); // تحديث المنيو باللغة الجديدة
+        if (grid) displayProducts(); // تحديث المنتجات باللغة الجديدة
         updateCartBadge();
     }
 
-    if (langBtn) {
-        langBtn.addEventListener('click', () => {
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
             const currentLang = htmlTag.getAttribute('lang') || 'ar';
-            applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
+            const nextLang = (currentLang === 'ar') ? 'en' : 'ar';
+            applyLanguage(nextLang);
         });
-    }
+    });
 
-    // تطبيق اللغة المحفوظة أو العربية كافتراضية
+    // تطبيق اللغة المحفوظة فوراً
     const savedLang = localStorage.getItem('incenseLang') || 'ar';
     applyLanguage(savedLang);
 
-     const navLinks = document.querySelector('.nav-links'); // تأكد إن السطر ده بيجيب الـ UL
-
+    // ==========================================
+    // 5. تشغيل قائمة الموبايل (Hamburger Menu)
+    // ==========================================
     if (menuBtn && navLinks) {
         menuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            // إضافة كلاس active للقائمة نفسها
             navLinks.classList.toggle('active');
-            
-            // تغيير شكل الأيقونة
             const icon = menuBtn.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.className = 'fas fa-times'; // علامة X
-            } else {
-                icon.className = 'fas fa-bars'; // تلات شرطات
+            if (icon) {
+                icon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
             }
         });
     }
 
-    // --- 5. البحث والفلترة ---
+    // إغلاق القائمة عند الضغط على أي رابط بداخلها
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            const icon = menuBtn.querySelector('i');
+            if (icon) icon.className = 'fas fa-bars';
+        });
+    });
+
+    // ==========================================
+    // 6. تشغيل القائمة المنسدلة (Dropdown) في الموبايل
+    // ==========================================
+    if (dropdownToggle && window.innerWidth < 992) {
+        dropdownToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+            const icon = dropdownToggle.querySelector('i');
+            if (icon) icon.style.transform = dropdownMenu.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
+    }
+
+    // ==========================================
+    // 7. البحث والفلترة والأنيميشن
+    // ==========================================
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             displayProducts('all', e.target.value);
@@ -131,28 +168,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 6. أنيميشن السكرول (Reveal) ---
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            } else {
-                entry.target.classList.remove('active');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('active');
+            else entry.target.classList.remove('active');
         });
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // --- 7. تشغيل الفلتر من الرابط (URL Params) ---
+    // ==========================================
+    // 8. السلايدر التلقائي
+    // ==========================================
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length > 0) {
+        let currentSlide = 0;
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000);
+    }
+
+    // تشغيل الفلتر من الرابط (URL Params)
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get('cat');
     if (category) displayProducts(category);
-
 });
 
 // ==========================================
-// وظائف عالمية (Global) - خارج DOMContentLoaded
+// 9. وظائف عالمية (Global Functions)
 // ==========================================
 
 function updateCartBadge() {
@@ -172,14 +217,7 @@ function addToCart(id) {
     if (existing) {
         existing.quantity += 1;
     } else {
-        cart.push({
-            id: product.id,
-            nameAr: product.nameAr,
-            nameEn: product.nameEn,
-            price: product.price,
-            img: product.img,
-            quantity: 1
-        });
+        cart.push({ id: product.id, nameAr: product.nameAr, nameEn: product.nameEn, price: product.price, img: product.img, quantity: 1 });
     }
 
     localStorage.setItem('incenseCart', JSON.stringify(cart));
