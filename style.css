@@ -1,9 +1,8 @@
 :root {
-    /* درجات الرمادي المقترحة للفخامة */
-    --main-gray: #555;     /* رمادي غامق للهيدر */
-    --top-bar-gray: #1a1a1a;  /* رمادي أغمق للشريط العلوي */
-    --gold: #c5a059;          /* الذهبي الأساسي */
-    --maroon: #632424;        /* العنابي (للمسة الدفء في الأزرار) */
+    --main-gray: #555;    
+    --top-bar-gray: #1a1a1a;  
+    --gold: #c5a059;         
+    --maroon: #632424;       
     --white: #ffffff;
 }
 
@@ -1753,16 +1752,15 @@ body {
         font-size: 24px;
     }
 }
-/* --- تنسيق أيقونة التوثيق --- */
 .business-verification {
     margin-top: 20px;
     display: inline-block;
 }
 
 .business-verification img {
-    width: 120px; /* حجم مناسب وواضح */
+    width: 120px; 
     height: auto;
-    background: #fff; /* خلفية بيضاء لكي تبرز فوق اللون العنابي أو الأسود */
+    background: #fff; 
     padding: 8px;
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1771,10 +1769,9 @@ body {
 
 .business-verification img:hover {
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3); /* توهج ذهبي خفيف */
+    box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3); 
 }
 
-/* في الموبايل يتم توسيطها */
 @media (max-width: 768px) {
     .business-verification {
         text-align: center;
