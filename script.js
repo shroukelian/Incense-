@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h3 class="lang-en">${p.nameEn}</h3>
                     </a>
                     <p class="pro-notes"><i class="fas fa-wind"></i> ${p.notes}</p>
-                    <div class="pro-price">${p.price} SAR</div>
+                    <div class="pro-price">${p.price} ⃁</div>
                     <div class="pro-buttons">
                         <button class="add-to-cart-btn" onclick="addToCart(${p.id})">
                             <i class="fas fa-cart-plus"></i> <span class="lang-ar">إضافة</span><span class="lang-en">Add</span>
