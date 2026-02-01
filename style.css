@@ -15,7 +15,7 @@
     background-color: var(--main-gray) !important;
     padding: 12px 0;
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    border-bottom: 1px solid var(--gold); 
+    border-bottom: 1px solid var(--white); 
 }
 
 
@@ -126,7 +126,7 @@ body {
 }
 
 .nav-logo {
-    height: 50px;
+    height: 67px;
 }
 
 .brand-name h1 {
